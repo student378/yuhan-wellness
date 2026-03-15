@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>유한대학교 웰니스스테이션</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1a2c5b; --navy-dark: #0f1e42; --navy-light: #2e4080;
+  --gold: #c8a84b; --gold-light: #e2c97e; --gold-pale: #f5e9c4;
+  --white: #fff; --off: #f7f8fc; --gl: #eef0f6;
+  --gray: #8490a8; --text: #1a2340; --textm: #3d4f72; --border: #d0d8ec;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--off); color: var(--text); overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 2.5rem; height: 60px; background: var(--navy-dark); border-bottom: 3px solid var(--gold); }
+.nav-logo { display: flex; align-items: center; gap: .7rem; }
+.nav-badge { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); display: flex; align-items: center; justify-content: center; font-size: .9rem; font-weight: 900; color: var(--navy-dark); flex-shrink: 0; }
+.nav-text { font-size: .8rem; font-weight: 700; color: #fff; }
+.nav-sub { font-size: .63rem; color: var(--gold-light); }
+.nav-links { display: flex; list-style: none; height: 60px; }
+.nav-links a { display: flex; align-items: center; padding: 0 .9rem; height: 100%; color: rgba(255,255,255,.7); text-decoration: none; font-size: .76rem; font-weight: 500; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: all .2s; }
+.nav-links a:hover { color: #fff; border-bottom-color: var(--gold); }
+
+/* NOTICE BAR */
+.nb { background: var(--gold-pale); border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); padding: .62rem 2rem; text-align: center; font-size: .8rem; font-weight: 600; color: var(--navy); }
+.nb a { color: var(--navy); text-decoration: underline; font-weight: 700; cursor: pointer; }
+
+/* HERO */
+.hero { background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 55%, var(--navy-light) 100%); padding: 7rem 2rem 4.5rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(200,168,75,.09) 0%, transparent 65%); }
+.hero-in { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+.hero-tag { display: inline-flex; align-items: center; background: rgba(255,255,255,.08); border: 1px solid rgba(200,168,75,.4); padding: .38rem 1rem; border-radius: 100px; margin-bottom: 1.6rem; animation: fadeUp .8s ease both; }
+.hero-tag span { font-size: .68rem; font-weight: 600; color: var(--gold-light); letter-spacing: .14em; text-transform: uppercase; }
+.hero h1 { font-family: 'Noto Serif KR', serif; font-size: clamp(1.8rem, 5vw, 3.2rem); font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: .7rem; animation: fadeUp .8s ease .1s both; }
+.hero h1 em { color: var(--gold-light); font-style: normal; }
+.hero-sub { font-size: .95rem; color: rgba(255,255,255,.6); line-height: 1.8; margin-bottom: 2rem; animation: fadeUp .8s ease .2s both; }
+.hero-btns { display: flex; gap: .9rem; justify-content: center; flex-wrap: wrap; animation: fadeUp .8s ease .3s both; }
+
+/* BUTTONS */
+.btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy-dark); font-weight: 700; font-size: .86rem; padding: .75rem 1.8rem; border-radius: 6px; text-decoration: none; border: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; transition: all .2s; box-shadow: 0 4px 16px rgba(200,168,75,.3); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,168,75,.4); }
+.btn-white { background: transparent; color: #fff; font-weight: 600; font-size: .86rem; padding: .75rem 1.8rem; border-radius: 6px; text-decoration: none; border: 1.5px solid rgba(255,255,255,.4); cursor: pointer; font-family: 'Noto Sans KR', sans-serif; transition: all .2s; }
+.btn-white:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+
+/* STATS */
+.stats { background: var(--navy); border-bottom: 1px solid rgba(200,168,75,.2); }
+.stats-in { max-width: 1100px; margin: 0 auto; display: flex; }
+.stat { flex: 1; padding: 1.3rem 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,.1); }
+.stat:last-child { border-right: none; }
+.stat-n { font-size: 1.35rem; font-weight: 900; color: var(--gold-light); display: block; }
+.stat-l { font-size: .72rem; color: rgba(255,255,255,.5); margin-top: .22rem; }
+
+/* SECTION */
+.sw { max-width: 1100px; margin: 0 auto; padding: 4.5rem 2rem; }
+.stag { display: inline-block; background: var(--navy); color: var(--gold-light); font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .26rem .78rem; border-radius: 3px; margin-bottom: .75rem; }
+.stitle { font-family: 'Noto Serif KR', serif; font-size: clamp(1.4rem, 2.5vw, 1.85rem); font-weight: 900; color: var(--navy-dark); }
+.stitle span { color: var(--gold); }
+.srule { display: block; width: 36px; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-pale)); margin-top: .75rem; border-radius: 2px; }
+.ssub { font-size: .87rem; color: var(--gray); line-height: 1.7; margin-top: .65rem; }
+
+/* FACILITY */
+.fgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; }
+.fcard { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; cursor: pointer; transition: all .25s; position: relative; }
+.fcard::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--navy), var(--navy-light)); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+.fcard:hover { border-color: var(--navy-light); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,44,91,.12); }
+.fcard:hover::after { transform: scaleX(1); }
+.fphoto { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(135deg, var(--gl), #dde2f0); }
+.fbody { padding: 1.5rem; }
+.fnum { display: inline-block; font-size: .66rem; font-weight: 700; background: var(--navy); color: var(--gold-light); padding: .16rem .55rem; border-radius: 3px; margin-bottom: .75rem; }
+.fname { font-size: 1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: .4rem; }
+.fdesc { font-size: .8rem; color: var(--gray); line-height: 1.65; margin-bottom: .9rem; }
+.mrow { display: flex; gap: .5rem; font-size: .75rem; margin-bottom: .28rem; }
+.mk { color: var(--gray); min-width: 52px; flex-shrink: 0; }
+.mv { color: var(--textm); font-weight: 600; }
+.badge { display: inline-block; font-size: .66rem; padding: .18rem .6rem; border-radius: 3px; font-weight: 600; margin-top: .75rem; background: rgba(26,44,91,.08); color: var(--navy); border: 1px solid rgba(26,44,91,.15); }
+.fhint { font-size: .72rem; color: var(--gold); margin-top: .6rem; font-weight: 600; opacity: 0; transition: opacity .2s; }
+.fcard:hover .fhint { opacity: 1; }
+
+/* HOW TO */
+.howto-sec { background: var(--navy-dark); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: rgba(255,255,255,.07); border-radius: 12px; overflow: hidden; margin-top: 1.75rem; }
+.step { background: rgba(255,255,255,.04); padding: 1.65rem; }
+.step:hover { background: rgba(255,255,255,.09); }
+.stepn { font-size: .67rem; font-weight: 700; letter-spacing: .12em; color: var(--gold); text-transform: uppercase; margin-bottom: .75rem; display: flex; align-items: center; gap: .5rem; }
+.stepn::after { content: ''; flex: 1; height: 1px; background: rgba(200,168,75,.25); }
+.stepi { font-size: 1.35rem; margin-bottom: .6rem; }
+.stept { font-size: .9rem; font-weight: 700; color: #fff; margin-bottom: .35rem; }
+.stepd { font-size: .77rem; color: rgba(255,255,255,.48); line-height: 1.65; }
+.note-box { margin-top: 1.75rem; background: rgba(200,168,75,.12); border: 1px solid rgba(200,168,75,.3); border-radius: 10px; padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+.note-box-icon { font-size: 1.5rem; flex-shrink: 0; }
+.note-box-text { font-size: .83rem; color: rgba(255,255,255,.8); line-height: 1.7; }
+.note-box-text strong { color: var(--gold-light); }
+
+/* EVENTS */
+.events-sec { background: var(--gl); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.egrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.2rem; }
+.ecard { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all .25s; }
+.ecard:hover { border-color: var(--navy-light); transform: translateY(-3px); box-shadow: 0 12px 28px rgba(26,44,91,.1); }
+.ethumb { width: 100%; height: 140px; object-fit: cover; display: block; }
+.ethumb-fb { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; }
+.ethumb-fb.green  { background: linear-gradient(135deg,#0a2e1a,#0d5c2e); }
+.ethumb-fb.blue   { background: linear-gradient(135deg,#0f1e42,#1a2c5b); }
+.ethumb-fb.orange { background: linear-gradient(135deg,#2e1000,#7a2c00); }
+.ethumb-fb.purple { background: linear-gradient(135deg,#1a0a30,#3b1060); }
+.ebody { padding: 1.25rem 1.4rem; }
+.estat { font-size: .66rem; font-weight: 700; padding: .18rem .62rem; border-radius: 3px; display: inline-block; margin-bottom: .58rem; }
+.s-on  { background: rgba(26,44,91,.1); color: var(--navy); border: 1px solid rgba(26,44,91,.2); }
+.s-up  { background: var(--gold-pale); color: #7a5c1a; border: 1px solid rgba(200,168,75,.3); }
+.s-end { background: var(--gl); color: var(--gray); border: 1px solid var(--border); }
+.etitle  { font-size: .92rem; font-weight: 700; color: var(--navy-dark); margin-bottom: .38rem; line-height: 1.4; }
+.eperiod { font-size: .73rem; color: var(--gray); }
+.eloading, .eempty { text-align: center; padding: 3rem; color: var(--gray); font-size: .87rem; }
+
+/* NOTICES */
+.notices-sec { background: #fff; }
+.ntable { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.ntable th { background: var(--navy); color: #fff; padding: .7rem 1rem; text-align: left; font-weight: 600; font-size: .78rem; }
+.ntable th:first-child { width: 60px; text-align: center; }
+.ntable th:last-child { width: 100px; text-align: center; }
+.ntable td { padding: .78rem 1rem; border-bottom: 1px solid var(--gl); vertical-align: middle; }
+.ntable td:first-child { text-align: center; color: var(--gray); font-size: .76rem; }
+.ntable td:last-child { text-align: center; color: var(--gray); font-size: .76rem; }
+.ntable tr:hover td { background: var(--gl); }
+.ntbtn { background: none; border: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; font-size: .84rem; color: var(--navy-dark); text-align: left; padding: 0; }
+.ntbtn:hover { text-decoration: underline; }
+.badge-imp { font-size: .63rem; padding: .12rem .5rem; border-radius: 3px; background: #fee2e2; color: #991b1b; font-weight: 700; margin-right: .4rem; }
+.nload, .nempty { text-align: center; padding: 2.5rem; color: var(--gray); font-size: .87rem; }
+
+/* MAP */
+.map-sec { background: #fff; border-top: 1px solid var(--border); }
+.map-container { position: relative; display: inline-block; max-width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 24px rgba(26,44,91,.12); }
+.map-img { width: 100%; max-width: 900px; display: block; height: auto; }
+.map-pin-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.map-pin { position: absolute; left: 22.5%; top: 37%; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center; }
+.pin-body { width: 36px; height: 36px; background: var(--navy); border: 3px solid var(--gold); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); position: relative; box-shadow: 0 4px 14px rgba(26,44,91,.4); animation: pinBounce 1.8s ease-in-out infinite; }
+.pin-body::after { content: ''; width: 14px; height: 14px; background: var(--gold-light); border-radius: 50%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+@keyframes pinBounce { 0%,100% { transform: rotate(-45deg) translateY(0); } 50% { transform: rotate(-45deg) translateY(-6px); } }
+.pin-label { background: var(--navy-dark); color: var(--gold-light); font-size: .72rem; font-weight: 700; padding: .3rem .75rem; border-radius: 20px; white-space: nowrap; margin-top: 4px; border: 1px solid var(--gold); }
+.map-fallback { width: 100%; height: 400px; display: none; align-items: center; justify-content: center; flex-direction: column; gap: .75rem; background: var(--gl); border-radius: 12px; color: var(--gray); font-size: .85rem; }
+.map-note { font-size: .78rem; color: var(--gray); margin-top: .75rem; line-height: 1.6; background: var(--gl); border-radius: 8px; padding: .7rem 1rem; border-left: 3px solid var(--gold); max-width: 900px; }
+
+/* SUGGESTION */
+.sug-sec { background: var(--off); }
+.fwrap { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 2.25rem; max-width: 640px; margin: 0 auto; box-shadow: 0 4px 24px rgba(26,44,91,.07); }
+.fwhead { border-bottom: 2px solid var(--navy); padding-bottom: .85rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: .65rem; }
+.fwicon { width: 32px; height: 32px; background: var(--navy); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: .9rem; }
+.fwhead h3 { font-size: .96rem; font-weight: 700; color: var(--navy-dark); }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.fg { margin-bottom: 1.05rem; }
+.fg label { display: block; font-size: .77rem; font-weight: 700; color: var(--navy); margin-bottom: .36rem; }
+.fg input, .fg select, .fg textarea { width: 100%; background: var(--off); border: 1.5px solid var(--border); border-radius: 7px; padding: .62rem .9rem; color: var(--text); font-family: 'Noto Sans KR', sans-serif; font-size: .84rem; outline: none; transition: border-color .2s; }
+.fg input:focus, .fg select:focus, .fg textarea:focus { border-color: var(--navy); background: #fff; }
+.fg textarea { resize: vertical; min-height: 110px; }
+.fsub { width: 100%; background: var(--navy); color: #fff; font-weight: 700; font-size: .9rem; padding: .86rem; border-radius: 8px; border: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; transition: all .2s; margin-top: .4rem; }
+.fsub:hover { background: var(--navy-light); }
+.fsub:disabled { opacity: .5; cursor: not-allowed; }
+
+/* FOOTER */
+footer { background: var(--navy-dark); border-top: 3px solid var(--gold); padding: 2.25rem; text-align: center; }
+.flogo { font-family: 'Noto Serif KR', serif; font-size: .95rem; font-weight: 900; color: #fff; margin-bottom: .6rem; }
+.flogo span { color: var(--gold-light); }
+.fdiv { width: 34px; height: 2px; background: var(--gold); margin: .6rem auto; border-radius: 2px; }
+.ftext { font-size: .77rem; color: rgba(255,255,255,.42); line-height: 1.85; }
+.ftext a { color: var(--gold-light); text-decoration: none; }
+
+/* MODAL */
+.ov { position: fixed; inset: 0; background: rgba(10,20,60,.65); z-index: 300; display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.ov.open { opacity: 1; pointer-events: all; }
+.modal { background: #fff; border-radius: 16px; max-width: 500px; width: 100%; overflow: hidden; transform: scale(.95); transition: transform .3s; box-shadow: 0 24px 60px rgba(10,20,60,.3); max-height: 90vh; overflow-y: auto; }
+.ov.open .modal { transform: scale(1); }
+.mhd { background: var(--navy); padding: 1.35rem 1.6rem; display: flex; align-items: center; gap: .85rem; }
+.mhd-icon { font-size: 1.6rem; }
+.mhd h3 { font-size: 1rem; font-weight: 700; color: #fff; flex: 1; }
+.mhd-close { background: none; border: none; color: rgba(255,255,255,.6); font-size: 1.4rem; cursor: pointer; line-height: 1; }
+.mbody { padding: 1.6rem; }
+.mdesc { font-size: .83rem; color: var(--textm); line-height: 1.7; margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid var(--border); }
+.mlist { list-style: none; }
+.mlist li { display: flex; justify-content: space-between; font-size: .82rem; padding: .48rem 0; border-bottom: 1px solid var(--gl); }
+.mlist li:last-child { border-bottom: none; }
+.ml-k { color: var(--gray); }
+.ml-v { color: var(--navy-dark); font-weight: 600; }
+.mcls { width: calc(100% - 3.2rem); margin: 0 1.6rem 1.6rem; padding: .7rem; background: var(--navy); color: #fff; font-weight: 700; border-radius: 8px; border: none; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; }
+.nm-content { font-size: .88rem; color: var(--textm); line-height: 1.85; white-space: pre-wrap; }
+.nm-meta { font-size: .75rem; color: var(--gray); margin-bottom: 1rem; padding-bottom: .8rem; border-bottom: 1px solid var(--gl); }
+
+/* ADMIN */
+.atab { background: var(--gl); border: 1px solid var(--border); border-radius: 6px; padding: .45rem .9rem; font-size: .78rem; font-weight: 600; color: var(--navy); cursor: pointer; font-family: 'Noto Sans KR', sans-serif; }
+.atab.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 1.75rem; right: 1.75rem; z-index: 600; font-weight: 700; font-size: .81rem; padding: .75rem 1.35rem; border-radius: 8px; transform: translateY(80px); opacity: 0; transition: all .3s; max-width: 300px; }
+.toast.ok  { background: var(--navy); color: #fff; border-left: 4px solid var(--gold); }
+.toast.err { background: #991b1b; color: #fff; border-left: 4px solid #f87171; }
+.toast.show { transform: translateY(0); opacity: 1; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.rv { opacity: 0; transform: translateY(16px); transition: opacity .55s ease, transform .55s ease; }
+.rv.on { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 640px) {
+  nav { padding: 0 1rem; }
+  .nav-links { display: none; }
+  .sw { padding: 3.5rem 1rem; }
+  .frow { grid-template-columns: 1fr; }
+  .stats-in { display: grid; grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(even) { border-right: none; }
+  .stat { border-bottom: 1px solid rgba(255,255,255,.08); }
+  .stat:nth-last-child(-n+2) { border-bottom: none; }
+  .ntable th:last-child, .ntable td:last-child { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-badge">유</div>
+    <div>
+      <div class="nav-text">유한대학교 웰니스스테이션</div>
+      <div class="nav-sub">Yuhan University Wellness Station</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#facilities">시설안내</a></li>
+    <li><a href="#howto">이용방법</a></li>
+    <li><a href="#events">이벤트</a></li>
+    <li><a href="#notices">공지사항</a></li>
+    <li><a href="#location">찾아오기</a></li>
+    <li><a href="#suggestion">건의게시판</a></li>
+  </ul>
+</nav>
+
+<div class="nb" style="margin-top:60px">
+  📍 <strong>학생회관 4층</strong> &nbsp;|&nbsp;
+  🕐 <strong>평일 09:00 ~ 17:40</strong> &nbsp;|&nbsp;
+  📲 <a onclick="goApply()">QR 체크인 또는 이용 신청하기</a> &nbsp;|&nbsp;
+  💚 <strong>모든 시설 무료</strong>
+</div>
+
+<div class="hero">
+  <div class="hero-in">
+    <div class="hero-tag"><span>🏫 유한대학교 학생복지팀</span></div>
+    <h1>유한대학교<br><em>웰니스스테이션</em><br>이용 안내</h1>
+    <p class="hero-sub">인생네컷 · 노래방 · 탁구장 · 헬스장<br>학생 여러분의 건강하고 즐거운 캠퍼스 생활을 지원합니다.</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="goApply()">📋 이용 신청하기</button>
+      <a href="#facilities" class="btn-white">시설 안내 보기</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stats-in">
+    <div class="stat"><span class="stat-n">4</span><div class="stat-l">운영 시설</div></div>
+    <div class="stat"><span class="stat-n">09:00</span><div class="stat-l">평일 운영 시작</div></div>
+    <div class="stat"><span class="stat-n">17:40</span><div class="stat-l">퇴실 마감</div></div>
+    <div class="stat"><span class="stat-n">4F</span><div class="stat-l">학생회관 4층</div></div>
+  </div>
+</div>
+
+<!-- 시설안내 -->
+<div id="facilities">
+<div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv">Facilities</div>
+    <h2 class="stitle rv">시설 <span>소개 및 이용 안내</span><span class="srule"></span></h2>
+    <p class="ssub rv">카드를 클릭하면 상세 이용 규정을 확인할 수 있습니다. 모든 시설 재학생 무료.</p>
+  </div>
+  <div class="fgrid">
+    <div class="fcard rv" onclick="showFacility('photobooth')">
+      <div class="fphoto">📸</div>
+      <div class="fbody">
+        <div class="fnum">01</div>
+        <div class="fname">인생네컷</div>
+        <div class="fdesc">감성 포토부스. 다양한 프레임·필터로 특별한 추억을 남겨보세요.</div>
+        <div class="mrow"><span class="mk">이용시간</span><span class="mv">~ 17:40까지</span></div>
+        <div class="mrow"><span class="mk">입장</span><span class="mv">QR 체크인 또는 신청</span></div>
+        <span class="badge">✓ 무료</span>
+        <div class="fhint">상세 보기 →</div>
+      </div>
+    </div>
+    <div class="fcard rv" onclick="showFacility('karaoke')">
+      <div class="fphoto">🎤</div>
+      <div class="fbody">
+        <div class="fnum">02</div>
+        <div class="fname">노래방</div>
+        <div class="fdesc">1회 최대 30분 이용. 입장 시 QR 체크인 필수. 17:40까지 퇴실.</div>
+        <div class="mrow"><span class="mk">이용시간</span><span class="mv">최대 30분 · ~ 17:40</span></div>
+        <div class="mrow"><span class="mk">입장</span><span class="mv">QR 체크인 또는 신청</span></div>
+        <span class="badge">✓ 무료</span>
+        <div class="fhint">상세 보기 →</div>
+      </div>
+    </div>
+    <div class="fcard rv" onclick="showFacility('pingpong')">
+      <div class="fphoto">🏓</div>
+      <div class="fbody">
+        <div class="fnum">03</div>
+        <div class="fname">탁구장</div>
+        <div class="fdesc">신발 제한 없음. 라켓 셋트 지급 후 반납. 최대 1시간 이용.</div>
+        <div class="mrow"><span class="mk">이용시간</span><span class="mv">최대 1시간 · ~ 17:40</span></div>
+        <div class="mrow"><span class="mk">입장</span><span class="mv">QR 체크인 또는 신청</span></div>
+        <span class="badge">✓ 무료</span>
+        <div class="fhint">상세 보기 →</div>
+      </div>
+    </div>
+    <div class="fcard rv" onclick="showFacility('gym')">
+      <div class="fphoto">💪</div>
+      <div class="fbody">
+        <div class="fnum">04</div>
+        <div class="fname">헬스장</div>
+        <div class="fdesc">전용 신발 필수. 탈의실 사물함 이용 가능. 운동 후 장비 정리.</div>
+        <div class="mrow"><span class="mk">이용시간</span><span class="mv">~ 17:40까지 퇴실</span></div>
+        <div class="mrow"><span class="mk">신발</span><span class="mv">전용 운동화 필수</span></div>
+        <span class="badge">✓ 무료</span>
+        <div class="fhint">상세 보기 →</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 이용방법 -->
+<div id="howto" class="howto-sec">
+<div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv" style="background:rgba(255,255,255,.12);color:var(--gold-light)">How to Use</div>
+    <h2 class="stitle rv" style="color:#fff">이용 방법<span class="srule" style="background:linear-gradient(90deg,var(--gold),transparent)"></span></h2>
+  </div>
+  <div class="note-box rv">
+    <div class="note-box-icon">📲</div>
+    <div class="note-box-text">
+      <strong>[ 공통 입장 방법 ]</strong> 모든 시설 입장 시 아래 두 가지 방법 중 하나로 체크인하세요.<br>
+      ① <strong>QR 체크인</strong> — 스테이션 입구 QR코드 스캔<br>
+      ② <strong><span style="cursor:pointer;text-decoration:underline" onclick="goApply()">이용 신청하기</span></strong> — 신청 폼 작성 후 입장
+    </div>
+  </div>
+  <div class="steps">
+    <div class="step rv"><div class="stepn">STEP 01</div><div class="stepi">📲</div><div class="stept">QR 체크인 또는 신청</div><div class="stepd">입구 QR 스캔 또는 이용 신청 폼 작성</div></div>
+    <div class="step rv"><div class="stepn">STEP 02</div><div class="stepi">🎽</div><div class="stept">준비물 확인</div><div class="stepd">헬스장 전용 신발 필수. 탁구장 라켓 수령</div></div>
+    <div class="step rv"><div class="stepn">STEP 03</div><div class="stepi">🏃</div><div class="stept">시설 이용</div><div class="stepd">노래방 30분, 탁구장 1시간 제한</div></div>
+    <div class="step rv"><div class="stepn">STEP 04</div><div class="stepi">🚪</div><div class="stept">17:40 전 퇴실</div><div class="stepd">라켓 반납, 장비·개인짐 정리 후 퇴실</div></div>
+  </div>
+  <div style="text-align:center;margin-top:2rem">
+    <button class="btn-gold" onclick="goApply()">📋 이용 신청하기</button>
+  </div>
+</div>
+</div>
+
+<!-- 이벤트 -->
+<div id="events" class="events-sec">
+<div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv">Events</div>
+    <h2 class="stitle rv">이벤트<span class="srule"></span></h2>
+    <p class="ssub rv">웰니스스테이션 이벤트를 확인하세요.</p>
+  </div>
+  <div id="eventsBox"><div class="eloading">🔄 불러오는 중...</div></div>
+</div>
+</div>
+
+<!-- 공지사항 -->
+<div id="notices" class="notices-sec">
+<div class="sw">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+    <div>
+      <div class="stag rv">Notice</div>
+      <h2 class="stitle rv">공지사항<span class="srule"></span></h2>
+    </div>
+    <button class="btn-gold rv" onclick="openAdmin()" style="font-size:.78rem;padding:.6rem 1.2rem;height:fit-content">🔐 관리자</button>
+  </div>
+  <table class="ntable rv">
+    <thead><tr><th>번호</th><th>제목</th><th>날짜</th></tr></thead>
+    <tbody id="noticesBox"><tr><td colspan="3" class="nload">🔄 불러오는 중...</td></tr></tbody>
+  </table>
+</div>
+</div>
+
+<!-- 찾아오기 -->
+<div id="location" class="map-sec">
+<div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv">Location</div>
+    <h2 class="stitle rv">찾아오기<span class="srule"></span></h2>
+    <p class="ssub rv">웰니스스테이션은 <strong>학생회관(04번 건물) 4층</strong>에 위치합니다.</p>
+  </div>
+  <div style="text-align:center" class="rv">
+    <div class="map-container">
+      <img id="mapImg" class="map-img" src="웰니스스테이션_위치.jpg" alt="캠퍼스 지도">
+      <div class="map-fallback" id="mapFallback">
+        <span style="font-size:2rem">🗺️</span>
+        <span>캠퍼스 지도 이미지를 불러올 수 없습니다</span>
+        <small>웰니스스테이션_위치.jpg 파일을 확인해주세요</small>
+      </div>
+      <div class="map-pin-layer">
+        <div class="map-pin">
+          <div class="pin-body"></div>
+          <div class="pin-label">📍 04 학생회관 4층</div>
+        </div>
+      </div>
+    </div>
+    <div class="map-note">
+      📌 <strong>경인국도(유일한로)</strong> 방면 정문 진입 후 학생회관(04번 건물) 4층 &nbsp;|&nbsp;
+      🚇 소사역 하차 후 버스 이용 또는 도보 약 15분
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 건의게시판 -->
+<div id="suggestion" class="sug-sec">
+<div class="sw">
+  <div style="text-align:center;margin-bottom:2rem">
+    <div class="stag rv" style="margin:0 auto .75rem">Suggestion Board</div>
+    <h2 class="stitle rv" style="text-align:center">건의게시판<span class="srule" style="margin:.75rem auto 0"></span></h2>
+    <p class="ssub rv" style="text-align:center">불편한 점이나 개선 사항을 자유롭게 남겨주세요.</p>
+  </div>
+  <div class="fwrap rv">
+    <div class="fwhead">
+      <div class="fwicon">✉️</div>
+      <h3>건의 접수 양식</h3>
+    </div>
+    <div class="frow">
+      <div class="fg"><label>학과</label><input type="text" id="fDept" placeholder="예) 컴퓨터정보과"></div>
+      <div class="fg"><label>학번</label><input type="text" id="fSid" placeholder="예) 2024001234"></div>
+    </div>
+    <div class="fg">
+      <label>관련 시설</label>
+      <select id="fFac">
+        <option value="">시설 선택</option>
+        <option>인생네컷</option><option>노래방</option><option>탁구장</option><option>헬스장</option><option>전체/기타</option>
+      </select>
+    </div>
+    <div class="fg"><label>건의 제목</label><input type="text" id="fSubj" placeholder="제목을 입력해주세요"></div>
+    <div class="fg"><label>내용</label><textarea id="fCont" placeholder="불편한 점, 개선 사항을 자유롭게 작성해주세요."></textarea></div>
+    <button class="fsub" id="sugBtn" onclick="submitSuggestion()">✉️ 건의 제출하기</button>
+  </div>
+</div>
+</div>
+
+<footer>
+  <div class="flogo">유한대학교 <span>웰니스스테이션</span></div>
+  <div class="fdiv"></div>
+  <div class="ftext">
+    학생복지팀 · 학생회관 4층 (Wellness Station) · 평일 09:00 ~ 17:40<br>
+    📞 <a href="tel:0226100330">02-2610-0330~1</a> &nbsp;|&nbsp; ✉️ <a href="mailto:student@yuhan.ac.kr">student@yuhan.ac.kr</a>
+  </div>
+</footer>
+
+<!-- 시설 상세 모달 -->
+<div class="ov" id="facOv" onclick="closeOv('facOv',event)">
+  <div class="modal">
+    <div class="mhd"><div class="mhd-icon" id="facIcon"></div><h3 id="facTitle"></h3><button class="mhd-close" onclick="closeOv('facOv')">✕</button></div>
+    <div class="mbody"><p class="mdesc" id="facDesc"></p><ul class="mlist" id="facList"></ul></div>
+    <button class="mcls" onclick="closeOv('facOv')">닫기</button>
+  </div>
+</div>
+
+<!-- 공지 상세 모달 -->
+<div class="ov" id="notOv" onclick="closeOv('notOv',event)">
+  <div class="modal">
+    <div class="mhd"><h3 id="notTitle" style="flex:1"></h3><button class="mhd-close" onclick="closeOv('notOv')">✕</button></div>
+    <div class="mbody"><div class="nm-meta" id="notMeta"></div><div class="nm-content" id="notContent"></div></div>
+    <button class="mcls" onclick="closeOv('notOv')">닫기</button>
+  </div>
+</div>
+
+<!-- 관리자 모달 -->
+<div class="ov" id="admOv" onclick="closeOv('admOv',event)">
+  <div class="modal" style="max-width:560px">
+    <div class="mhd"><div class="mhd-icon">🔐</div><h3 id="admTitle">관리자 로그인</h3><button class="mhd-close" onclick="closeOv('admOv')">✕</button></div>
+    <div class="mbody">
+      <div id="admLogin">
+        <div class="fg"><label>관리자 비밀번호</label><input type="password" id="admPw" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter')doLogin()"></div>
+        <button class="fsub" onclick="doLogin()">로그인</button>
+      </div>
+      <div id="admPanel" style="display:none">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem">
+          <button class="atab on" onclick="switchTab('not',this)">📋 공지사항</button>
+          <button class="atab" onclick="switchTab('evt',this)">🎉 이벤트</button>
+        </div>
+        <div id="tabNot">
+          <div class="fg"><label>제목</label><input type="text" id="nTitle" placeholder="공지 제목"></div>
+          <div class="fg"><label>내용</label><textarea id="nContent" placeholder="공지 내용" style="min-height:80px"></textarea></div>
+          <div class="fg" style="display:flex;align-items:center;gap:.5rem">
+            <input type="checkbox" id="nImp" style="width:auto">
+            <label for="nImp" style="margin:0;font-size:.82rem;color:var(--navy)">중요 공지</label>
+          </div>
+          <button class="fsub" onclick="addNotice()">공지 등록</button>
+        </div>
+        <div id="tabEvt" style="display:none">
+          <div class="fg"><label>제목</label><input type="text" id="eTitle" placeholder="이벤트 제목"></div>
+          <div class="frow">
+            <div class="fg"><label>시작일</label><input type="date" id="eStart"></div>
+            <div class="fg"><label>종료일</label><input type="date" id="eEnd"></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>상태</label><select id="eStatus"><option>진행중</option><option>예정</option><option>종료</option></select></div>
+            <div class="fg"><label>색상</label><select id="eTheme"><option value="blue">블루</option><option value="green">그린</option><option value="orange">오렌지</option><option value="purple">퍼플</option></select></div>
+          </div>
+          <div class="fg"><label>이모지</label><input type="text" id="eIcon" placeholder="🎉" style="max-width:80px"></div>
+          <div class="fg">
+            <label>이미지 URL <small style="color:var(--gray);font-weight:400">(Google Drive 공유링크)</small></label>
+            <input type="text" id="eImg" placeholder="https://drive.google.com/file/d/...">
+          </div>
+          <button class="fsub" onclick="addEvent()">이벤트 등록</button>
+        </div>
+      </div>
+    </div>
+    <button class="mcls" onclick="closeOv('admOv')">닫기</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// =============================================
+// ★ GAS URL (배포 후 이 URL로 고정)
+var G = 'https://script.google.com/macros/s/AKfycbwMxhZtTROsmmd-b_0QZEaGzegYqIcB7QVePDYR4zS_-z6fbwcMby9CcEfeyGtTVA1a/exec';
+// ★ 이용 신청 페이지 URL
+var APPLY = 'https://yuhan-wellness-apply.netlify.app';
+// =============================================
+
+var TOK = null;
+
+// 지도 이미지 오류 처리
+document.getElementById('mapImg').onerror = function() {
+  this.style.display = 'none';
+  document.getElementById('mapFallback').style.display = 'flex';
+};
+
+// 이용 신청 새 탭
+function goApply() { window.open(APPLY, '_blank'); }
+
+// JSONP 호출 공통 함수
+function jsonp(params, onSuccess, onError) {
+  var cb = 'cb_' + Date.now() + '_' + Math.floor(Math.random()*9999);
+  var qs = Object.keys(params).map(function(k) {
+    return k + '=' + encodeURIComponent(params[k]);
+  }).join('&');
+  window[cb] = function(d) {
+    delete window[cb];
+    var s = document.getElementById('s_' + cb);
+    if (s) s.remove();
+    if (d.status === 'ok') { if (onSuccess) onSuccess(d); }
+    else { if (onError) onError(d.message); else toast(d.message || '오류', 'err'); }
+  };
+  var s = document.createElement('script');
+  s.id = 's_' + cb;
+  s.src = G + '?' + qs + '&callback=' + cb;
+  s.onerror = function() {
+    delete window[cb];
+    s.remove();
+    if (onError) onError('네트워크 오류');
+    else toast('네트워크 오류', 'err');
+  };
+  document.head.appendChild(s);
+}
+
+// 이벤트 로드
+function loadEvents() {
+  jsonp({ action: 'getEvents' }, function(d) {
+    var box = document.getElementById('eventsBox');
+    if (!d.data || !d.data.length) {
+      box.innerHTML = '<div class="eempty">📭 현재 등록된 이벤트가 없습니다.</div>';
+      return;
+    }
+    box.innerHTML = '<div class="egrid">' + d.data.map(function(ev) {
+      var sm = { '진행중': 's-on', '예정': 's-up', '종료': 's-end' };
+      var th = ev.theme || 'blue';
+      var s  = ev.dateStart || '';
+      var e  = ev.dateEnd   || '';
+      var img = ev.imageUrl
+        ? '<img class="ethumb" src="' + ev.imageUrl + '" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;ethumb-fb ' + th + '&quot;>' + (ev.icon||'🎉') + '</div>\'">'
+        : '<div class="ethumb-fb ' + th + '">' + (ev.icon || '🎉') + '</div>';
+      return '<div class="ecard">' + img +
+        '<div class="ebody"><span class="estat ' + (sm[ev.status]||'s-end') + '">' + ev.status + '</span>' +
+        '<div class="etitle">' + ev.title + '</div>' +
+        '<div class="eperiod">' + (s && e ? s + ' — ' + e : s) + '</div></div></div>';
+    }).join('') + '</div>';
+  }, function() {
+    document.getElementById('eventsBox').innerHTML = '<div class="eempty">⚠️ 이벤트를 불러오지 못했습니다.</div>';
+  });
+}
+
+// 공지 로드
+function loadNotices() {
+  jsonp({ action: 'getNotices' }, function(d) {
+    var tb = document.getElementById('noticesBox');
+    if (!d.data || !d.data.length) {
+      tb.innerHTML = '<tr><td colspan="3" class="nempty">📭 등록된 공지사항이 없습니다.</td></tr>';
+      return;
+    }
+    tb.innerHTML = d.data.map(function(n, i) {
+      return '<tr><td>' + (d.data.length - i) + '</td><td>' +
+        '<button class="ntbtn" onclick=\'showNotice(' + JSON.stringify(n) + ')\'>' +
+        (n.important ? '<span class="badge-imp">중요</span>' : '') + n.title +
+        '</button></td><td>' + n.date + '</td></tr>';
+    }).join('');
+  }, function() {
+    document.getElementById('noticesBox').innerHTML = '<tr><td colspan="3" class="nempty">⚠️ 공지사항을 불러오지 못했습니다.</td></tr>';
+  });
+}
+
+// 시설 상세
+var FAC = {
+  photobooth: { icon:'📸', title:'인생네컷 이용 안내', desc:'QR 체크인 또는 이용 신청으로 입장하세요.', list:[['위치','학생회관 4층'],['이용시간','~ 17:40까지'],['입장','QR 체크인 또는 신청'],['요금','무료']] },
+  karaoke:    { icon:'🎤', title:'노래방 이용 안내',   desc:'1회 최대 30분 이용. 17:40까지 퇴실.',         list:[['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['최대이용','30분'],['입장','QR 체크인 또는 신청'],['요금','무료']] },
+  pingpong:   { icon:'🏓', title:'탁구장 이용 안내',   desc:'신발 제한 없음. 라켓 지급 후 반납.',           list:[['위치','학생회관 4층'],['이용시간','최대 1시간 · ~ 17:40'],['신발','제한 없음'],['라켓','지급 후 반납'],['요금','무료']] },
+  gym:        { icon:'💪', title:'헬스장 이용 안내',   desc:'전용 운동화 필수. 탈의실 사물함 이용 가능.',   list:[['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['신발','전용 운동화 필수'],['사물함','탈의실 내'],['요금','무료']] },
+};
+
+function showFacility(k) {
+  var d = FAC[k];
+  document.getElementById('facIcon').textContent  = d.icon;
+  document.getElementById('facTitle').textContent = d.title;
+  document.getElementById('facDesc').textContent  = d.desc;
+  document.getElementById('facList').innerHTML = d.list.map(function(r) {
+    return '<li><span class="ml-k">' + r[0] + '</span><span class="ml-v">' + r[1] + '</span></li>';
+  }).join('');
+  document.getElementById('facOv').classList.add('open');
+}
+
+function showNotice(n) {
+  document.getElementById('notTitle').textContent   = n.title;
+  document.getElementById('notMeta').textContent    = '작성일: ' + n.date;
+  document.getElementById('notContent').textContent = n.content;
+  document.getElementById('notOv').classList.add('open');
+}
+
+function closeOv(id, e) {
+  if (!e || e.target === document.getElementById(id))
+    document.getElementById(id).classList.remove('open');
+}
+
+// 건의 제출
+function submitSuggestion() {
+  var dept = document.getElementById('fDept').value.trim();
+  var sid  = document.getElementById('fSid').value.trim();
+  var fac  = document.getElementById('fFac').value;
+  var subj = document.getElementById('fSubj').value.trim();
+  var cont = document.getElementById('fCont').value.trim();
+  if (!subj || !cont) { toast('제목과 내용을 입력해주세요.', 'err'); return; }
+  var btn = document.getElementById('sugBtn');
+  btn.disabled = true; btn.textContent = '⏳ 접수 중...';
+  jsonp({ action:'submitSuggestion', department:dept, studentId:sid, facility:fac, subject:subj, content:cont },
+    function() {
+      toast('✅ 건의사항이 접수되었습니다!', 'ok');
+      ['fDept','fSid','fSubj','fCont'].forEach(function(id) { document.getElementById(id).value = ''; });
+      document.getElementById('fFac').value = '';
+      btn.disabled = false; btn.textContent = '✉️ 건의 제출하기';
+    },
+    function(msg) { toast('❌ ' + msg, 'err'); btn.disabled = false; btn.textContent = '✉️ 건의 제출하기'; }
+  );
+}
+
+// 관리자
+function openAdmin() { document.getElementById('admOv').classList.add('open'); }
+
+function doLogin() {
+  var pw = document.getElementById('admPw').value;
+  if (!pw) { toast('비밀번호를 입력해주세요.', 'err'); return; }
+  jsonp({ action:'adminLogin', password:pw },
+    function(d) {
+      TOK = d.token;
+      document.getElementById('admLogin').style.display = 'none';
+      document.getElementById('admPanel').style.display = 'block';
+      document.getElementById('admTitle').textContent = '관리자 패널';
+      toast('✅ 로그인 성공', 'ok');
+    },
+    function(msg) { toast('❌ ' + msg, 'err'); }
+  );
+}
+
+function switchTab(t, btn) {
+  document.querySelectorAll('.atab').forEach(function(b) { b.classList.remove('on'); });
+  btn.classList.add('on');
+  document.getElementById('tabNot').style.display = t === 'not' ? 'block' : 'none';
+  document.getElementById('tabEvt').style.display = t === 'evt' ? 'block' : 'none';
+}
+
+function addNotice() {
+  var title   = document.getElementById('nTitle').value.trim();
+  var content = document.getElementById('nContent').value.trim();
+  var imp     = document.getElementById('nImp').checked;
+  if (!title || !content) { toast('제목과 내용을 입력해주세요.', 'err'); return; }
+  jsonp({ action:'addNotice', token:TOK, title:title, content:content, important:String(imp) },
+    function() { toast('✅ 공지사항이 등록되었습니다.', 'ok'); document.getElementById('nTitle').value = ''; document.getElementById('nContent').value = ''; loadNotices(); },
+    function(msg) { toast('❌ ' + msg, 'err'); }
+  );
+}
+
+function addEvent() {
+  var title = document.getElementById('eTitle').value.trim();
+  if (!title) { toast('이벤트 제목을 입력해주세요.', 'err'); return; }
+  jsonp({
+    action: 'addEvent', token: TOK, title: title,
+    dateStart : document.getElementById('eStart').value,
+    dateEnd   : document.getElementById('eEnd').value,
+    status    : document.getElementById('eStatus').value,
+    theme     : document.getElementById('eTheme').value,
+    icon      : document.getElementById('eIcon').value || '🎉',
+    imageUrl  : document.getElementById('eImg').value.trim(),
+  },
+    function() { toast('✅ 이벤트가 등록되었습니다.', 'ok'); document.getElementById('eTitle').value = ''; loadEvents(); },
+    function(msg) { toast('❌ ' + msg, 'err'); }
+  );
+}
+
+// 토스트
+function toast(msg, type) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + type + ' show';
+  setTimeout(function() { t.className = 'toast ' + type; }, 3200);
+}
+
+// 스크롤 애니메이션
+var rv = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) { setTimeout(function() { e.target.classList.add('on'); }, i * 65); rv.unobserve(e.target); }
+  });
+}, { threshold: .07 });
+document.querySelectorAll('.rv').forEach(function(el) { rv.observe(el); });
+
+// 초기 로드
+loadEvents();
+loadNotices();
+</script>
+</body>
+</html>
