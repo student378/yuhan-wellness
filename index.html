@@ -11,7 +11,6 @@
 body{font-family:'Noto Sans KR',sans-serif;background:var(--of);color:var(--tx);overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:var(--nd);border-bottom:3px solid var(--gd)}
 .nlogo{display:flex;align-items:center;gap:.7rem}
-.nbdg{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gd),var(--gl));display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;color:var(--nd);flex-shrink:0}
 .ntxt{font-size:.8rem;font-weight:700;color:#fff}
 .nsub{font-size:.63rem;color:var(--gl)}
 .nul{display:flex;list-style:none;height:60px}
@@ -165,7 +164,6 @@ footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-
 <body>
 <nav>
   <div class="nlogo">
-    <div class="nbdg">유</div>
     <div><div class="ntxt">유한대학교 웰니스스테이션</div><div class="nsub">Yuhan University Wellness Station</div></div>
   </div>
   <ul class="nul">
@@ -353,8 +351,9 @@ var GURL='https://script.google.com/macros/s/AKfycbwMxhZtTROsmmd-b_0QZEaGzegYqIc
 var AURL='https://student378.github.io/yuhan-wellness-apply/';
 var ATOK=null;
 
-// 이메일 동적 생성 (Cloudflare 주입 방지)
-(function(){var el=document.getElementById('ftEmail');if(el){var u='student',d='yuhan.ac.kr';el.href='mailto:'+u+'@'+d;el.textContent=u+'@'+d;}})();
+// 이메일 동적 생성
+var _u='student',_d='yuhan.ac.kr',_el=document.getElementById('ftEmail');
+if(_el){_el.href='mailto:'+_u+'@'+_d;_el.textContent=_u+'@'+_d;}
 
 // 지도 이미지 오류 처리
 window.addEventListener('load',function(){
@@ -388,6 +387,12 @@ function callGAS(params,onOk,onErr){
   sc.id='sc_'+cb;
   sc.src=GURL+'?'+qs+'&callback='+cb;
   sc.onerror=function(){delete window[cb];if(sc.parentNode)sc.parentNode.removeChild(sc);var msg='네트워크 오류';if(onErr)onErr(msg);else showToast(msg,'er');};
+  // 10초 타임아웃
+  var timer=setTimeout(function(){
+    if(window[cb]){delete window[cb];if(sc.parentNode)sc.parentNode.removeChild(sc);var msg='응답 시간 초과';if(onErr)onErr(msg);else showToast(msg,'er');}
+  },10000);
+  var origCb=window[cb];
+  window[cb]=function(data){clearTimeout(timer);origCb(data);};
   document.head.appendChild(sc);
 }
 
