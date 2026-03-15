@@ -7,7 +7,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
 <style>
 :root{--nv:#1a2c5b;--nd:#0f1e42;--nl:#2e4080;--gd:#c8a84b;--gl:#e2c97e;--gp:#f5e9c4;--of:#f7f8fc;--bg:#eef0f6;--gy:#8490a8;--tx:#1a2340;--tm:#3d4f72;--br:#d0d8ec}
-*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:'Noto Sans KR',sans-serif;background:var(--of);color:var(--tx);overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:var(--nd);border-bottom:3px solid var(--gd)}
 .nlogo{display:flex;align-items:center;gap:.7rem}
@@ -75,10 +76,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .cktx strong{color:var(--gl)}
 .evsec{background:var(--bg);border-top:1px solid var(--br);border-bottom:1px solid var(--br)}
 .evgrd{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
-.evcd{background:#fff;border:1px solid var(--br);border-radius:12px;overflow:hidden;transition:all .25s}
+.evcd{background:#fff;border:1px solid var(--br);border-radius:12px;overflow:hidden;transition:all .25s;cursor:pointer}
 .evcd:hover{border-color:var(--nl);transform:translateY(-3px);box-shadow:0 12px 28px rgba(26,44,91,.1)}
-.evth{width:100%;height:140px;object-fit:cover;display:block}
-.evfb{height:140px;display:flex;align-items:center;justify-content:center;font-size:2.6rem}
+.evth{width:100%;height:200px;object-fit:contain;display:block;background:#1a2340}
+.evfb{height:200px;display:flex;align-items:center;justify-content:center;font-size:2.6rem}
 .evfb.green{background:linear-gradient(135deg,#0a2e1a,#0d5c2e)}
 .evfb.blue{background:linear-gradient(135deg,#0f1e42,#1a2c5b)}
 .evfb.orange{background:linear-gradient(135deg,#2e1000,#7a2c00)}
@@ -160,13 +161,11 @@ footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-
 .tost.er{background:#991b1b;color:#fff;border-left:4px solid #f87171}
 .tost.show{transform:translateY(0);opacity:1}
 @keyframes fup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
-.rv.on{opacity:1;transform:translateY(0)}
+.rv{opacity:1;transform:none}
 @media(max-width:640px){nav{padding:0 1rem}.nul{display:none}.sw{padding:3.5rem 1rem}.fmrw{grid-template-columns:1fr}.stin{display:grid;grid-template-columns:1fr 1fr}.stit:nth-child(even){border-right:none}.stit{border-bottom:1px solid rgba(255,255,255,.08)}.stit:nth-last-child(-n+2){border-bottom:none}.nttb th:last-child,.nttb td:last-child{display:none}}
 </style>
 </head>
 <body>
-
 <nav>
   <div class="nlogo">
     <div class="nbdg">유</div>
@@ -181,12 +180,10 @@ footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-
     <li><a href="#sec-sug">건의게시판</a></li>
   </ul>
 </nav>
-
 <div class="topbar" style="margin-top:60px">
   📍 <strong>학생회관 4층</strong> &nbsp;|&nbsp; 🕐 <strong>평일 09:00 ~ 17:40</strong> &nbsp;|&nbsp;
   📲 <a onclick="doApply()">이용 신청하기</a> &nbsp;|&nbsp; 💚 <strong>모든 시설 무료</strong>
 </div>
-
 <div class="hero">
   <div class="hin">
     <div class="htag"><span>🏫 유한대학교 학생복지팀</span></div>
@@ -198,183 +195,128 @@ footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-
     </div>
   </div>
 </div>
-
-<div class="stbar">
-  <div class="stin">
-    <div class="stit"><span class="stnum">4</span><div class="stlb">운영 시설</div></div>
-    <div class="stit"><span class="stnum">09:00</span><div class="stlb">평일 운영 시작</div></div>
-    <div class="stit"><span class="stnum">17:40</span><div class="stlb">퇴실 마감</div></div>
-    <div class="stit"><span class="stnum">4F</span><div class="stlb">학생회관 4층</div></div>
+<div class="stbar"><div class="stin">
+  <div class="stit"><span class="stnum">4</span><div class="stlb">운영 시설</div></div>
+  <div class="stit"><span class="stnum">09:00</span><div class="stlb">평일 운영 시작</div></div>
+  <div class="stit"><span class="stnum">17:40</span><div class="stlb">퇴실 마감</div></div>
+  <div class="stit"><span class="stnum">4F</span><div class="stlb">학생회관 4층</div></div>
+</div></div>
+<div id="sec-fac"><div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv">Facilities</div>
+    <h2 class="sttl rv">시설 <span>소개 및 이용 안내</span><span class="srul"></span></h2>
+    <p class="ssub rv">카드를 클릭하면 상세 이용 규정을 확인할 수 있습니다. 모든 시설 재학생 무료.</p>
   </div>
-</div>
-
-<div id="sec-fac">
-  <div class="sw">
-    <div style="margin-bottom:2rem">
-      <div class="stag rv">Facilities</div>
-      <h2 class="sttl rv">시설 <span>소개 및 이용 안내</span><span class="srul"></span></h2>
-      <p class="ssub rv">카드를 클릭하면 상세 이용 규정을 확인할 수 있습니다. 모든 시설 재학생 무료.</p>
+  <div class="fgrid">
+    <div class="fcard rv" onclick="showFac('pb')">
+      <div class="fimg">📸</div>
+      <div class="fbdy"><div class="fno">01</div><div class="fnm">인생네컷</div>
+      <div class="fds">감성 포토부스. 다양한 프레임·필터로 특별한 추억을 남겨보세요.</div>
+      <div class="frow"><span class="fk">이용시간</span><span class="fv">~ 17:40까지</span></div>
+      <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div></div>
     </div>
-    <div class="fgrid">
-      <div class="fcard rv" onclick="showFac('pb')">
-        <div class="fimg">📸</div>
-        <div class="fbdy">
-          <div class="fno">01</div><div class="fnm">인생네컷</div>
-          <div class="fds">감성 포토부스. 다양한 프레임·필터로 특별한 추억을 남겨보세요.</div>
-          <div class="frow"><span class="fk">이용시간</span><span class="fv">~ 17:40까지</span></div>
-          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
-        </div>
-      </div>
-      <div class="fcard rv" onclick="showFac('kr')">
-        <div class="fimg">🎤</div>
-        <div class="fbdy">
-          <div class="fno">02</div><div class="fnm">노래방</div>
-          <div class="fds">1회 최대 30분 이용. 입장 시 QR 체크인 필수. 17:40까지 퇴실.</div>
-          <div class="frow"><span class="fk">최대이용</span><span class="fv">30분</span></div>
-          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
-        </div>
-      </div>
-      <div class="fcard rv" onclick="showFac('pp')">
-        <div class="fimg">🏓</div>
-        <div class="fbdy">
-          <div class="fno">03</div><div class="fnm">탁구장</div>
-          <div class="fds">신발 제한 없음. 라켓 셋트 지급 후 반납. 최대 1시간 이용.</div>
-          <div class="frow"><span class="fk">최대이용</span><span class="fv">1시간</span></div>
-          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
-        </div>
-      </div>
-      <div class="fcard rv" onclick="showFac('gm')">
-        <div class="fimg">💪</div>
-        <div class="fbdy">
-          <div class="fno">04</div><div class="fnm">헬스장</div>
-          <div class="fds">전용 신발 필수. 탈의실 사물함 이용 가능. 운동 후 장비 정리.</div>
-          <div class="frow"><span class="fk">신발</span><span class="fv">전용 운동화 필수</span></div>
-          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
-        </div>
-      </div>
+    <div class="fcard rv" onclick="showFac('kr')">
+      <div class="fimg">🎤</div>
+      <div class="fbdy"><div class="fno">02</div><div class="fnm">노래방</div>
+      <div class="fds">1회 최대 30분 이용. 입장 시 QR 체크인 필수. 17:40까지 퇴실.</div>
+      <div class="frow"><span class="fk">최대이용</span><span class="fv">30분</span></div>
+      <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div></div>
+    </div>
+    <div class="fcard rv" onclick="showFac('pp')">
+      <div class="fimg">🏓</div>
+      <div class="fbdy"><div class="fno">03</div><div class="fnm">탁구장</div>
+      <div class="fds">신발 제한 없음. 라켓 셋트 지급 후 반납. 최대 1시간 이용.</div>
+      <div class="frow"><span class="fk">최대이용</span><span class="fv">1시간</span></div>
+      <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div></div>
+    </div>
+    <div class="fcard rv" onclick="showFac('gm')">
+      <div class="fimg">💪</div>
+      <div class="fbdy"><div class="fno">04</div><div class="fnm">헬스장</div>
+      <div class="fds">전용 신발 필수. 탈의실 사물함 이용 가능. 운동 후 장비 정리.</div>
+      <div class="frow"><span class="fk">신발</span><span class="fv">전용 운동화 필수</span></div>
+      <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div></div>
     </div>
   </div>
-</div>
-
-<div id="sec-how" class="hwsec">
-  <div class="sw">
-    <div style="margin-bottom:2rem">
-      <div class="stag rv" style="background:rgba(255,255,255,.12);color:var(--gl)">How to Use</div>
-      <h2 class="sttl rv" style="color:#fff">이용 방법<span class="srul" style="background:linear-gradient(90deg,var(--gd),transparent)"></span></h2>
-    </div>
-    <div class="cknote rv">
-      <div class="ckic">📲</div>
-      <div class="cktx">
-        <strong>[공통 입장 방법]</strong> 모든 시설 입장 시 체크인 필수.<br>
-        ① <strong>QR 체크인</strong> — 스테이션 입구 QR코드 스캔<br>
-        ② <strong><span style="cursor:pointer;text-decoration:underline" onclick="doApply()">이용 신청하기</span></strong> — 신청 폼 작성 후 입장
-      </div>
-    </div>
-    <div class="hwstps">
-      <div class="hwstp rv"><div class="hwno">STEP 01</div><div class="hwic">📲</div><div class="hwtl">QR 체크인 또는 신청</div><div class="hwds">입구 QR 스캔 또는 이용 신청 폼 작성</div></div>
-      <div class="hwstp rv"><div class="hwno">STEP 02</div><div class="hwic">🎽</div><div class="hwtl">준비물 확인</div><div class="hwds">헬스장 전용 신발 필수. 탁구장 라켓 수령</div></div>
-      <div class="hwstp rv"><div class="hwno">STEP 03</div><div class="hwic">🏃</div><div class="hwtl">시설 이용</div><div class="hwds">노래방 30분, 탁구장 1시간 제한</div></div>
-      <div class="hwstp rv"><div class="hwno">STEP 04</div><div class="hwic">🚪</div><div class="hwtl">17:40 전 퇴실</div><div class="hwds">라켓 반납, 장비·개인짐 정리 후 퇴실</div></div>
-    </div>
-    <div style="text-align:center;margin-top:2rem">
-      <button class="btng" onclick="doApply()">📋 이용 신청하기</button>
-    </div>
+</div></div>
+<div id="sec-how" class="hwsec"><div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv" style="background:rgba(255,255,255,.12);color:var(--gl)">How to Use</div>
+    <h2 class="sttl rv" style="color:#fff">이용 방법<span class="srul" style="background:linear-gradient(90deg,var(--gd),transparent)"></span></h2>
   </div>
-</div>
-
-<div id="sec-evt" class="evsec">
-  <div class="sw">
-    <div style="margin-bottom:2rem">
-      <div class="stag rv">Events</div>
-      <h2 class="sttl rv">이벤트<span class="srul"></span></h2>
-      <p class="ssub rv">웰니스스테이션 이벤트를 확인하세요.</p>
-    </div>
-    <div id="evBox"><div class="evld">🔄 불러오는 중...</div></div>
+  <div class="cknote rv">
+    <div class="ckic">📲</div>
+    <div class="cktx"><strong>[공통 입장 방법]</strong> 모든 시설 입장 시 체크인 필수.<br>
+    ① <strong>QR 체크인</strong> — 스테이션 입구 QR코드 스캔<br>
+    ② <strong><span style="cursor:pointer;text-decoration:underline" onclick="doApply()">이용 신청하기</span></strong> — 신청 폼 작성 후 입장</div>
   </div>
-</div>
-
-<div id="sec-not" class="notsec">
-  <div class="sw">
-    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
-      <div>
-        <div class="stag rv">Notice</div>
-        <h2 class="sttl rv">공지사항<span class="srul"></span></h2>
-      </div>
-      <button class="btng rv" onclick="openAdmin()" style="font-size:.78rem;padding:.6rem 1.2rem;height:fit-content">🔐 관리자</button>
-    </div>
-    <table class="nttb rv">
-      <thead><tr><th>번호</th><th>제목</th><th>날짜</th></tr></thead>
-      <tbody id="notBox"><tr><td colspan="3" class="ntld">🔄 불러오는 중...</td></tr></tbody>
-    </table>
+  <div class="hwstps">
+    <div class="hwstp rv"><div class="hwno">STEP 01</div><div class="hwic">📲</div><div class="hwtl">체크인 또는 신청</div><div class="hwds">QR 스캔 또는 이용 신청 폼 작성</div></div>
+    <div class="hwstp rv"><div class="hwno">STEP 02</div><div class="hwic">🎽</div><div class="hwtl">준비물 확인</div><div class="hwds">헬스장 전용 신발 필수. 탁구장 라켓 수령</div></div>
+    <div class="hwstp rv"><div class="hwno">STEP 03</div><div class="hwic">🏃</div><div class="hwtl">시설 이용</div><div class="hwds">노래방 30분, 탁구장 1시간 제한</div></div>
+    <div class="hwstp rv"><div class="hwno">STEP 04</div><div class="hwic">🚪</div><div class="hwtl">17:40 전 퇴실</div><div class="hwds">라켓 반납, 장비·개인짐 정리 후 퇴실</div></div>
   </div>
-</div>
-
-<div id="sec-loc" class="mapsec">
-  <div class="sw">
-    <div style="margin-bottom:2rem">
-      <div class="stag rv">Location</div>
-      <h2 class="sttl rv">찾아오기<span class="srul"></span></h2>
-      <p class="ssub rv">웰니스스테이션은 <strong>학생회관(04번 건물) 4층</strong>에 위치합니다.</p>
-    </div>
-    <div style="text-align:center" class="rv">
-      <div class="mapwrp">
-        <img id="mapImg" class="mapimg" src="웰니스스테이션_위치.jpg" alt="캠퍼스 지도">
-        <div class="mapfl" id="mapFb">
-          <span style="font-size:2rem">🗺️</span>
-          <span>캠퍼스 지도 이미지를 불러올 수 없습니다</span>
-        </div>
-        <div class="mappnl">
-          <div class="mappin">
-            <div class="pinbd"></div>
-            <div class="pinlb">📍 04 학생회관 4층</div>
-          </div>
-        </div>
-      </div>
-      <div class="mapnt">
-        📌 <strong>경인국도(유일한로)</strong> 방면 정문 진입 후 학생회관(04번 건물) 4층 &nbsp;|&nbsp;
-        🚇 소사역 하차 후 버스 이용 또는 도보 약 15분
-      </div>
-    </div>
+  <div style="text-align:center;margin-top:2rem"><button class="btng" onclick="doApply()">📋 이용 신청하기</button></div>
+</div></div>
+<div id="sec-evt" class="evsec"><div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv">Events</div>
+    <h2 class="sttl rv">이벤트<span class="srul"></span></h2>
+    <p class="ssub rv">웰니스스테이션 이벤트를 확인하세요.</p>
   </div>
-</div>
-
-<div id="sec-sug" class="sugsec">
-  <div class="sw">
-    <div style="text-align:center;margin-bottom:2rem">
-      <div class="stag rv" style="margin:0 auto .75rem">Suggestion Board</div>
-      <h2 class="sttl rv" style="text-align:center">건의게시판<span class="srul" style="margin:.75rem auto 0"></span></h2>
-      <p class="ssub rv" style="text-align:center">불편한 점이나 개선 사항을 자유롭게 남겨주세요.</p>
-    </div>
-    <div class="sugwrp rv">
-      <div class="sughd"><div class="sugic">✉️</div><h3>건의 접수 양식</h3></div>
-      <div class="fmrw">
-        <div class="fmgp"><label>학과</label><input type="text" id="inDpt" placeholder="예) 컴퓨터정보과"></div>
-        <div class="fmgp"><label>학번</label><input type="text" id="inSid" placeholder="예) 2024001234"></div>
-      </div>
-      <div class="fmgp">
-        <label>관련 시설</label>
-        <select id="inFac">
-          <option value="">시설 선택</option>
-          <option>인생네컷</option><option>노래방</option><option>탁구장</option><option>헬스장</option><option>전체/기타</option>
-        </select>
-      </div>
-      <div class="fmgp"><label>건의 제목</label><input type="text" id="inSbj" placeholder="제목을 입력해주세요"></div>
-      <div class="fmgp"><label>내용</label><textarea id="inCnt" placeholder="불편한 점, 개선 사항을 자유롭게 작성해주세요."></textarea></div>
-      <button class="fmsb" id="sugBtn" onclick="submitSug()">✉️ 건의 제출하기</button>
-    </div>
+  <div id="evBox"><div class="evld">🔄 불러오는 중...</div></div>
+</div></div>
+<div id="sec-not" class="notsec"><div class="sw">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+    <div><div class="stag rv">Notice</div><h2 class="sttl rv">공지사항<span class="srul"></span></h2></div>
+    <button class="btng rv" onclick="openAdmin()" style="font-size:.78rem;padding:.6rem 1.2rem;height:fit-content">🔐 관리자</button>
   </div>
-</div>
-
+  <table class="nttb rv">
+    <thead><tr><th>번호</th><th>제목</th><th>날짜</th></tr></thead>
+    <tbody id="notBox"><tr><td colspan="3" class="ntld">🔄 불러오는 중...</td></tr></tbody>
+  </table>
+</div></div>
+<div id="sec-loc" class="mapsec"><div class="sw">
+  <div style="margin-bottom:2rem">
+    <div class="stag rv">Location</div>
+    <h2 class="sttl rv">찾아오기<span class="srul"></span></h2>
+    <p class="ssub rv">웰니스스테이션은 <strong>학생회관(04번 건물) 4층</strong>에 위치합니다.</p>
+  </div>
+  <div style="text-align:center" class="rv">
+    <div class="mapwrp">
+      <img id="mapImg" class="mapimg" src="웰니스스테이션_위치.jpg" alt="캠퍼스 지도">
+      <div class="mapfl" id="mapFb"><span style="font-size:2rem">🗺️</span><span>캠퍼스 지도 이미지를 불러올 수 없습니다</span></div>
+      <div class="mappnl"><div class="mappin"><div class="pinbd"></div><div class="pinlb">📍 04 학생회관 4층</div></div></div>
+    </div>
+    <div class="mapnt">📌 <strong>경인국도(유일한로)</strong> 방면 정문 진입 후 학생회관(04번 건물) 4층</div>
+  </div>
+</div></div>
+<div id="sec-sug" class="sugsec"><div class="sw">
+  <div style="text-align:center;margin-bottom:2rem">
+    <div class="stag rv" style="margin:0 auto .75rem">Suggestion Board</div>
+    <h2 class="sttl rv" style="text-align:center">건의게시판<span class="srul" style="margin:.75rem auto 0"></span></h2>
+    <p class="ssub rv" style="text-align:center">불편한 점이나 개선 사항을 자유롭게 남겨주세요.</p>
+  </div>
+  <div class="sugwrp rv">
+    <div class="sughd"><div class="sugic">✉️</div><h3>건의 접수 양식</h3></div>
+    <div class="fmrw">
+      <div class="fmgp"><label>학과</label><input type="text" id="inDpt" placeholder="예) 컴퓨터정보과"></div>
+      <div class="fmgp"><label>학번</label><input type="text" id="inSid" placeholder="예) 2024001234"></div>
+    </div>
+    <div class="fmgp"><label>관련 시설</label>
+      <select id="inFac"><option value="">시설 선택</option><option>인생네컷</option><option>노래방</option><option>탁구장</option><option>헬스장</option><option>전체/기타</option></select>
+    </div>
+    <div class="fmgp"><label>건의 제목</label><input type="text" id="inSbj" placeholder="제목을 입력해주세요"></div>
+    <div class="fmgp"><label>내용</label><textarea id="inCnt" placeholder="불편한 점, 개선 사항을 자유롭게 작성해주세요."></textarea></div>
+    <button class="fmsb" id="sugBtn" onclick="submitSug()">✉️ 건의 제출하기</button>
+  </div>
+</div></div>
 <footer>
   <div class="ftlg">유한대학교 <span>웰니스스테이션</span></div>
   <div class="ftdv"></div>
-  <div class="fttx">
-    학생복지팀 · 학생회관 4층 (Wellness Station) · 평일 09:00 ~ 17:40<br>
-    📞 <a href="tel:0226100330">02-2610-0330~1</a> &nbsp;|&nbsp; ✉️ <a href="mailto:student@yuhan.ac.kr">student@yuhan.ac.kr</a>
-  </div>
+  <div class="fttx">학생복지팀 · 학생회관 4층 (Wellness Station) · 평일 09:00 ~ 17:40<br>
+  📞 <a href="tel:0226100330">02-2610-0330~1</a> &nbsp;|&nbsp; ✉️ <a href="mailto:student@yuhan.ac.kr">student@yuhan.ac.kr</a></div>
 </footer>
-
-<!-- 시설 상세 모달 -->
+<!-- 시설 모달 -->
 <div class="ovly" id="facOvly" onclick="closeOvly('facOvly',event)">
   <div class="mdal">
     <div class="mdhd"><div class="mdhic" id="facIcon"></div><h3 id="facTitle"></h3><button class="mdhcl" onclick="closeOvly('facOvly')">✕</button></div>
@@ -382,16 +324,30 @@ footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-
     <button class="mdcl" onclick="closeOvly('facOvly')">닫기</button>
   </div>
 </div>
-
-<!-- 공지 상세 모달 -->
+<!-- 공지 모달 -->
 <div class="ovly" id="notOvly" onclick="closeOvly('notOvly',event)">
-  <div class="mdal">
+  <div class="mdal" style="max-width:600px">
     <div class="mdhd"><h3 id="notTitle" style="flex:1"></h3><button class="mdhcl" onclick="closeOvly('notOvly')">✕</button></div>
-    <div class="mdbd"><div class="ntmt" id="notMeta"></div><div class="ntct" id="notCont"></div></div>
+    <div class="mdbd">
+      <div class="ntmt" id="notMeta"></div>
+      <div id="notImgWrap" style="margin-bottom:1rem;display:none"><img id="notImg" style="width:100%;border-radius:8px;max-height:300px;object-fit:contain" src="" alt="첨부 이미지"></div>
+      <div class="ntct" id="notCont"></div>
+    </div>
     <button class="mdcl" onclick="closeOvly('notOvly')">닫기</button>
   </div>
 </div>
-
+<!-- 이벤트 상세 모달 -->
+<div class="ovly" id="evOvly" onclick="closeOvly('evOvly',event)">
+  <div class="mdal" style="max-width:700px">
+    <div class="mdhd"><div class="mdhic" id="evIcon"></div><h3 id="evTitle"></h3><button class="mdhcl" onclick="closeOvly('evOvly')">✕</button></div>
+    <div class="mdbd">
+      <div id="evImgWrap" style="margin-bottom:1rem;display:none"><img id="evImg" style="width:100%;border-radius:8px;max-height:400px;object-fit:contain;background:#1a2340" src="" alt="이벤트 이미지"></div>
+      <div class="ntmt" id="evMeta"></div>
+      <div class="ntct" id="evDesc"></div>
+    </div>
+    <button class="mdcl" onclick="closeOvly('evOvly')">닫기</button>
+  </div>
+</div>
 <!-- 관리자 모달 -->
 <div class="ovly" id="admOvly" onclick="closeOvly('admOvly',event)">
   <div class="mdal" style="max-width:560px">
@@ -405,10 +361,12 @@ footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-
         <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem">
           <button class="adtb on" onclick="swTab('n',this)">📋 공지사항</button>
           <button class="adtb" onclick="swTab('e',this)">🎉 이벤트</button>
+          <button class="adtb" onclick="swTab('m',this)">🗺️ 지도</button>
         </div>
         <div id="tabNot">
           <div class="fmgp"><label>제목</label><input type="text" id="notiTi" placeholder="공지 제목"></div>
           <div class="fmgp"><label>내용</label><textarea id="notiCo" placeholder="공지 내용" style="min-height:80px"></textarea></div>
+          <div class="fmgp"><label>이미지 URL <small style="color:var(--gy);font-weight:400">(선택 · Drive 공유링크)</small></label><input type="text" id="notiImg" placeholder="https://drive.google.com/..."></div>
           <div class="fmgp" style="display:flex;align-items:center;gap:.5rem">
             <input type="checkbox" id="notiIm" style="width:auto">
             <label for="notiIm" style="margin:0;font-size:.82rem;color:var(--nv)">중요 공지</label>
@@ -426,49 +384,65 @@ footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-
             <div class="fmgp"><label>색상</label><select id="evtiTh"><option value="blue">블루</option><option value="green">그린</option><option value="orange">오렌지</option><option value="purple">퍼플</option></select></div>
           </div>
           <div class="fmgp"><label>이모지</label><input type="text" id="evtiIc" placeholder="🎉" style="max-width:80px"></div>
-          <div class="fmgp">
-            <label>이미지 URL <small style="color:var(--gy);font-weight:400">(Google Drive 공유링크)</small></label>
-            <input type="text" id="evtiIm" placeholder="https://drive.google.com/...">
-          </div>
+          <div class="fmgp"><label>이미지 URL <small style="color:var(--gy);font-weight:400">(Drive 공유링크)</small></label><input type="text" id="evtiIm" placeholder="https://drive.google.com/..."></div>
           <button class="fmsb" onclick="addEvti()">이벤트 등록</button>
+        </div>
+        <div id="tabMap" style="display:none">
+          <div class="fmgp"><label>지도 이미지 URL <small style="color:var(--gy);font-weight:400">(Drive 공유링크)</small></label><input type="text" id="mapUrl" placeholder="https://drive.google.com/file/d/..."></div>
+          <p style="font-size:.78rem;color:var(--gy);margin-bottom:.75rem">Drive에서 이미지 공유 → 링크 복사 → 위에 붙여넣기</p>
+          <button class="fmsb" onclick="updateMapImg()">지도 이미지 업데이트</button>
         </div>
       </div>
     </div>
     <button class="mdcl" onclick="closeOvly('admOvly')">닫기</button>
   </div>
 </div>
-
 <div class="tost" id="tost"></div>
-
 <script>
 var GURL = 'https://script.google.com/macros/s/AKfycbwMxhZtTROsmmd-b_0QZEaGzegYqIcB7QVePDYR4zS_-z6fbwcMby9CcEfeyGtTVA1a/exec';
 var AURL = 'https://student378.github.io/yuhan-wellness-apply/';
 var ATOK = null;
 
-document.getElementById('mapImg').onerror = function() {
-  this.style.display = 'none';
-  document.getElementById('mapFb').style.display = 'flex';
-};
+/* 지도 이미지 오류 처리 */
+window.addEventListener('DOMContentLoaded', function() {
+  var mi = document.getElementById('mapImg');
+  mi.onerror = function() {
+    this.style.display = 'none';
+    document.getElementById('mapFb').style.display = 'flex';
+  };
+});
 
+/* 이용 신청 새 탭 */
 function doApply() { window.open(AURL, '_blank'); }
 
+/* Drive URL 변환 */
+function convDrive(url) {
+  if (!url) return '';
+  var m = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (m) return 'https://lh3.googleusercontent.com/d/' + m[1];
+  var m2 = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+  if (m2) return 'https://lh3.googleusercontent.com/d/' + m2[1];
+  return url;
+}
+
+/* JSONP 공통 호출 */
 function callGAS(params, onOk, onErr) {
-  var cbName = 'gcb_' + Date.now() + '_' + Math.floor(Math.random() * 9999);
+  var cb = 'gcb_' + Date.now() + '_' + Math.floor(Math.random() * 9999);
   var qs = Object.keys(params).map(function(k) {
     return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]);
   }).join('&');
-  window[cbName] = function(data) {
-    delete window[cbName];
-    var sc = document.getElementById('sc_' + cbName);
-    if (sc) sc.parentNode.removeChild(sc);
+  window[cb] = function(data) {
+    delete window[cb];
+    var sc = document.getElementById('sc_' + cb);
+    if (sc && sc.parentNode) sc.parentNode.removeChild(sc);
     if (data.status === 'ok') { if (onOk) onOk(data); }
     else { var msg = data.message || '오류가 발생했습니다.'; if (onErr) onErr(msg); else showToast(msg, 'er'); }
   };
   var sc = document.createElement('script');
-  sc.id = 'sc_' + cbName;
-  sc.src = GURL + '?' + qs + '&callback=' + cbName;
+  sc.id  = 'sc_' + cb;
+  sc.src = GURL + '?' + qs + '&callback=' + cb;
   sc.onerror = function() {
-    delete window[cbName];
+    delete window[cb];
     if (sc.parentNode) sc.parentNode.removeChild(sc);
     var msg = '네트워크 오류가 발생했습니다.';
     if (onErr) onErr(msg); else showToast(msg, 'er');
@@ -476,6 +450,7 @@ function callGAS(params, onOk, onErr) {
   document.head.appendChild(sc);
 }
 
+/* 이벤트 로드 */
 function loadEvents() {
   callGAS({ action: 'getEvents' }, function(data) {
     var box = document.getElementById('evBox');
@@ -483,15 +458,21 @@ function loadEvents() {
       box.innerHTML = '<div class="evem">📭 현재 등록된 이벤트가 없습니다.</div>';
       return;
     }
-    var stMap = { '진행중': 'ston', '예정': 'stup', '종료': 'sted' };
+    var sm = { '진행중': 'ston', '예정': 'stup', '종료': 'sted' };
     var html = '<div class="evgrd">';
     data.data.forEach(function(ev) {
-      var th = ev.theme || 'blue';
+      var th  = ev.theme || 'blue';
       var img = ev.imageUrl
-        ? '<img class="evth" src="' + ev.imageUrl + '" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;evfb ' + th + '&quot;>' + (ev.icon || '🎉') + '</div>\'">'
+        ? '<img class="evth" src="' + ev.imageUrl + '" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">'
+          + '<div class="evfb ' + th + '" style="display:none">' + (ev.icon || '🎉') + '</div>'
         : '<div class="evfb ' + th + '">' + (ev.icon || '🎉') + '</div>';
       var period = (ev.dateStart && ev.dateEnd) ? ev.dateStart + ' — ' + ev.dateEnd : (ev.dateStart || '');
-      html += '<div class="evcd">' + img + '<div class="evbd"><span class="evst ' + (stMap[ev.status] || 'sted') + '">' + (ev.status || '') + '</span><div class="evtl">' + ev.title + '</div><div class="evpr">' + period + '</div></div></div>';
+      var evData = JSON.stringify(ev).replace(/'/g, "&#39;");
+      html += '<div class="evcd" onclick='showEv(' + evData + ')'>'
+        + img
+        + '<div class="evbd"><span class="evst ' + (sm[ev.status] || 'sted') + '">' + (ev.status || '') + '</span>'
+        + '<div class="evtl">' + ev.title + '</div>'
+        + '<div class="evpr">' + period + '</div></div></div>';
     });
     html += '</div>';
     box.innerHTML = html;
@@ -500,6 +481,26 @@ function loadEvents() {
   });
 }
 
+/* 이벤트 상세 팝업 */
+function showEv(ev) {
+  document.getElementById('evIcon').textContent  = ev.icon || '🎉';
+  document.getElementById('evTitle').textContent = ev.title || '';
+  var period = (ev.dateStart && ev.dateEnd) ? ev.dateStart + ' — ' + ev.dateEnd : (ev.dateStart || '');
+  document.getElementById('evMeta').textContent  = (ev.status || '') + (period ? ' · ' + period : '');
+  document.getElementById('evDesc').textContent  = '';
+  var iw = document.getElementById('evImgWrap');
+  var ie = document.getElementById('evImg');
+  if (ev.imageUrl) {
+    ie.src = ev.imageUrl;
+    iw.style.display = 'block';
+  } else {
+    iw.style.display = 'none';
+    ie.src = '';
+  }
+  document.getElementById('evOvly').classList.add('open');
+}
+
+/* 공지 로드 */
 function loadNotices() {
   callGAS({ action: 'getNotices' }, function(data) {
     var box = document.getElementById('notBox');
@@ -509,8 +510,11 @@ function loadNotices() {
     }
     var html = '';
     data.data.forEach(function(n, i) {
-      var imp = n.important ? '<span class="bimp">중요</span>' : '';
-      html += '<tr><td>' + (data.data.length - i) + '</td><td><button class="ntbtn" onclick=\'showNotice(' + JSON.stringify(n) + ')\'>' + imp + n.title + '</button></td><td>' + n.date + '</td></tr>';
+      var imp  = n.important ? '<span class="bimp">중요</span>' : '';
+      var nd   = JSON.stringify(n).replace(/'/g, "&#39;");
+      html += '<tr><td>' + (data.data.length - i) + '</td>'
+        + '<td><button class="ntbtn" onclick='showNotice(' + nd + ')'>' + imp + n.title + '</button></td>'
+        + '<td>' + n.date + '</td></tr>';
     });
     box.innerHTML = html;
   }, function() {
@@ -518,35 +522,43 @@ function loadNotices() {
   });
 }
 
-var FAC_DATA = {
-  pb: { icon: '📸', title: '인생네컷 이용 안내', desc: 'QR 체크인 또는 이용 신청으로 입장하세요.', list: [['위치','학생회관 4층'],['이용시간','~ 17:40까지'],['입장','QR 체크인 또는 신청'],['요금','무료']] },
-  kr: { icon: '🎤', title: '노래방 이용 안내', desc: '1회 최대 30분 이용. 17:40까지 퇴실.', list: [['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['최대이용','30분 초과 불가'],['요금','무료']] },
-  pp: { icon: '🏓', title: '탁구장 이용 안내', desc: '신발 제한 없음. 라켓 셋트 지급 후 반납.', list: [['위치','학생회관 4층'],['이용시간','최대 1시간 · ~ 17:40'],['신발','제한 없음'],['라켓','지급 후 반납'],['요금','무료']] },
-  gm: { icon: '💪', title: '헬스장 이용 안내', desc: '전용 운동화 필수. 탈의실 사물함 이용 가능.', list: [['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['신발','전용 운동화 필수'],['사물함','탈의실 내'],['요금','무료']] }
-};
-
-function showFac(key) {
-  var d = FAC_DATA[key];
-  document.getElementById('facIcon').textContent = d.icon;
-  document.getElementById('facTitle').textContent = d.title;
-  document.getElementById('facDesc').textContent = d.desc;
-  var li = d.list.map(function(r) { return '<li><span class="mdlk">' + r[0] + '</span><span class="mdlv">' + r[1] + '</span></li>'; }).join('');
-  document.getElementById('facList').innerHTML = li;
-  document.getElementById('facOvly').classList.add('open');
-}
-
+/* 공지 상세 */
 function showNotice(n) {
   document.getElementById('notTitle').textContent = n.title;
-  document.getElementById('notMeta').textContent = '작성일: ' + n.date;
-  document.getElementById('notCont').textContent = n.content;
+  document.getElementById('notMeta').textContent  = '작성일: ' + n.date;
+  document.getElementById('notCont').textContent  = n.content;
+  var iw = document.getElementById('notImgWrap');
+  var ie = document.getElementById('notImg');
+  if (n.imageUrl) { ie.src = n.imageUrl; iw.style.display = 'block'; }
+  else { iw.style.display = 'none'; ie.src = ''; }
   document.getElementById('notOvly').classList.add('open');
 }
 
+/* 시설 상세 */
+var FAC = {
+  pb: { icon:'📸', title:'인생네컷 이용 안내', desc:'QR 체크인 또는 이용 신청으로 입장하세요.', list:[['위치','학생회관 4층'],['이용시간','~ 17:40까지'],['입장','QR 체크인 또는 신청'],['요금','무료']] },
+  kr: { icon:'🎤', title:'노래방 이용 안내',   desc:'1회 최대 30분 이용. 17:40까지 퇴실.',       list:[['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['최대이용','30분 초과 불가'],['요금','무료']] },
+  pp: { icon:'🏓', title:'탁구장 이용 안내',   desc:'신발 제한 없음. 라켓 지급 후 반납.',         list:[['위치','학생회관 4층'],['이용시간','최대 1시간 · ~ 17:40'],['신발','제한 없음'],['라켓','지급 후 반납'],['요금','무료']] },
+  gm: { icon:'💪', title:'헬스장 이용 안내',   desc:'전용 운동화 필수. 탈의실 사물함 이용 가능.', list:[['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['신발','전용 운동화 필수'],['사물함','탈의실 내'],['요금','무료']] }
+};
+function showFac(k) {
+  var d = FAC[k];
+  document.getElementById('facIcon').textContent = d.icon;
+  document.getElementById('facTitle').textContent = d.title;
+  document.getElementById('facDesc').textContent  = d.desc;
+  document.getElementById('facList').innerHTML = d.list.map(function(r) {
+    return '<li><span class="mdlk">' + r[0] + '</span><span class="mdlv">' + r[1] + '</span></li>';
+  }).join('');
+  document.getElementById('facOvly').classList.add('open');
+}
+
+/* 오버레이 닫기 */
 function closeOvly(id, e) {
   if (!e || e.target === document.getElementById(id))
     document.getElementById(id).classList.remove('open');
 }
 
+/* 건의 제출 */
 function submitSug() {
   var dpt = document.getElementById('inDpt').value.trim();
   var sid = document.getElementById('inSid').value.trim();
@@ -556,7 +568,7 @@ function submitSug() {
   if (!sbj || !cnt) { showToast('제목과 내용을 입력해주세요.', 'er'); return; }
   var btn = document.getElementById('sugBtn');
   btn.disabled = true; btn.textContent = '⏳ 접수 중...';
-  callGAS({ action: 'submitSuggestion', department: dpt, studentId: sid, facility: fac, subject: sbj, content: cnt },
+  callGAS({ action:'submitSuggestion', department:dpt, studentId:sid, facility:fac, subject:sbj, content:cnt },
     function() {
       showToast('✅ 건의사항이 접수되었습니다!', 'ok');
       ['inDpt','inSid','inSbj','inCnt'].forEach(function(id) { document.getElementById(id).value = ''; });
@@ -567,17 +579,18 @@ function submitSug() {
   );
 }
 
+/* 관리자 */
 function openAdmin() { document.getElementById('admOvly').classList.add('open'); }
 
 function doLogin() {
   var pw = document.getElementById('admPw').value;
   if (!pw) { showToast('비밀번호를 입력해주세요.', 'er'); return; }
-  callGAS({ action: 'adminLogin', password: pw },
+  callGAS({ action:'adminLogin', password:pw },
     function(data) {
       ATOK = data.token;
       document.getElementById('admLogin').style.display = 'none';
       document.getElementById('admPanel').style.display = 'block';
-      document.getElementById('admTitle').textContent = '관리자 패널';
+      document.getElementById('admTitle').textContent   = '관리자 패널';
       showToast('✅ 로그인 성공', 'ok');
     },
     function(msg) { showToast('❌ ' + msg, 'er'); }
@@ -589,18 +602,22 @@ function swTab(t, btn) {
   btn.classList.add('on');
   document.getElementById('tabNot').style.display = t === 'n' ? 'block' : 'none';
   document.getElementById('tabEvt').style.display = t === 'e' ? 'block' : 'none';
+  document.getElementById('tabMap').style.display = t === 'm' ? 'block' : 'none';
 }
 
 function addNoti() {
-  var ti = document.getElementById('notiTi').value.trim();
-  var co = document.getElementById('notiCo').value.trim();
-  var im = document.getElementById('notiIm').checked;
+  var ti  = document.getElementById('notiTi').value.trim();
+  var co  = document.getElementById('notiCo').value.trim();
+  var im  = document.getElementById('notiIm').checked;
+  var img = document.getElementById('notiImg').value.trim();
   if (!ti || !co) { showToast('제목과 내용을 입력해주세요.', 'er'); return; }
-  callGAS({ action: 'addNotice', token: ATOK, title: ti, content: co, important: String(im) },
+  callGAS({ action:'addNotice', token:ATOK, title:ti, content:co, important:String(im), imageUrl:img },
     function() {
       showToast('✅ 공지사항이 등록되었습니다.', 'ok');
-      document.getElementById('notiTi').value = '';
-      document.getElementById('notiCo').value = '';
+      document.getElementById('notiTi').value  = '';
+      document.getElementById('notiCo').value  = '';
+      document.getElementById('notiImg').value = '';
+      document.getElementById('notiIm').checked = false;
       loadNotices();
     },
     function(msg) { showToast('❌ ' + msg, 'er'); }
@@ -611,43 +628,54 @@ function addEvti() {
   var ti = document.getElementById('evtiTi').value.trim();
   if (!ti) { showToast('이벤트 제목을 입력해주세요.', 'er'); return; }
   callGAS({
-    action: 'addEvent', token: ATOK, title: ti,
-    dateStart: document.getElementById('evtiSt').value,
-    dateEnd: document.getElementById('evtiEd').value,
-    status: document.getElementById('evtiSs').value,
-    theme: document.getElementById('evtiTh').value,
-    icon: document.getElementById('evtiIc').value || '🎉',
-    imageUrl: document.getElementById('evtiIm').value.trim()
+    action:'addEvent', token:ATOK, title:ti,
+    dateStart : document.getElementById('evtiSt').value,
+    dateEnd   : document.getElementById('evtiEd').value,
+    status    : document.getElementById('evtiSs').value,
+    theme     : document.getElementById('evtiTh').value,
+    icon      : document.getElementById('evtiIc').value || '🎉',
+    imageUrl  : document.getElementById('evtiIm').value.trim()
   },
     function() {
       showToast('✅ 이벤트가 등록되었습니다.', 'ok');
-      document.getElementById('evtiTi').value = '';
+      document.getElementById('evtiTi').value  = '';
+      document.getElementById('evtiIm').value  = '';
       loadEvents();
     },
     function(msg) { showToast('❌ ' + msg, 'er'); }
   );
 }
 
+function updateMapImg() {
+  var url = document.getElementById('mapUrl').value.trim();
+  if (!url) { showToast('Drive URL을 입력해주세요.', 'er'); return; }
+  var finalUrl = convDrive(url);
+  var mi = document.getElementById('mapImg');
+  var fb = document.getElementById('mapFb');
+  mi.src = finalUrl;
+  mi.style.display = 'block';
+  fb.style.display = 'none';
+  mi.onerror = function() {
+    this.style.display = 'none';
+    fb.style.display   = 'flex';
+    showToast('이미지를 불러올 수 없습니다. URL을 확인하세요.', 'er');
+  };
+  showToast('✅ 지도 이미지가 업데이트되었습니다.', 'ok');
+  document.getElementById('mapUrl').value = '';
+}
+
+/* 토스트 */
 function showToast(msg, type) {
   var t = document.getElementById('tost');
   t.textContent = msg;
-  t.className = 'tost ' + type + ' show';
+  t.className   = 'tost ' + type + ' show';
   setTimeout(function() { t.className = 'tost ' + type; }, 3200);
 }
 
-var rvObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry, i) {
-    if (entry.isIntersecting) {
-      setTimeout(function() { entry.target.classList.add('on'); }, i * 65);
-      rvObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.07 });
-document.querySelectorAll('.rv').forEach(function(el) { rvObs.observe(el); });
+/* 스크롤 애니메이션 제거됨 */
 
 loadEvents();
 loadNotices();
 </script>
-
 </body>
 </html>
