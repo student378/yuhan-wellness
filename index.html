@@ -6,413 +6,648 @@
 <title>유한대학교 웰니스스테이션</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@700;900&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#1a2c5b;--navy-dark:#0f1e42;--navy-light:#2e4080;--gold:#c8a84b;--gold-light:#e2c97e;--gold-pale:#f5e9c4;--off:#f7f8fc;--gl:#eef0f6;--gray:#8490a8;--text:#1a2340;--textm:#3d4f72;--border:#d0d8ec}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Noto Sans KR',sans-serif;background:var(--off);color:var(--text);overflow-x:hidden}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:var(--navy-dark);border-bottom:3px solid var(--gold)}
-.nl{display:flex;align-items:center;gap:.7rem}
-.nb2{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;color:var(--navy-dark);flex-shrink:0}
-.nt{font-size:.8rem;font-weight:700;color:#fff}
-.ns{font-size:.63rem;color:var(--gold-light)}
-.nli{display:flex;list-style:none;height:60px}
-.nli a{display:flex;align-items:center;padding:0 .9rem;height:100%;color:rgba(255,255,255,.7);text-decoration:none;font-size:.76rem;font-weight:500;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all .2s}
-.nli a:hover{color:#fff;border-bottom-color:var(--gold)}
-.nbar{background:var(--gold-pale);border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);padding:.62rem 2rem;text-align:center;font-size:.8rem;font-weight:600;color:var(--navy)}
-.nbar a{color:var(--navy);text-decoration:underline;font-weight:700;cursor:pointer}
-.hero{background:linear-gradient(160deg,var(--navy-dark) 0%,var(--navy) 55%,var(--navy-light) 100%);padding:7rem 2rem 4.5rem;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(200,168,75,.09) 0%,transparent 65%)}
-.hi{position:relative;z-index:1;max-width:700px;margin:0 auto}
+:root{--nv:#1a2c5b;--nd:#0f1e42;--nl:#2e4080;--gd:#c8a84b;--gl:#e2c97e;--gp:#f5e9c4;--of:#f7f8fc;--bg:#eef0f6;--gy:#8490a8;--tx:#1a2340;--tm:#3d4f72;--br:#d0d8ec}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR',sans-serif;background:var(--of);color:var(--tx);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:var(--nd);border-bottom:3px solid var(--gd)}
+.nlogo{display:flex;align-items:center;gap:.7rem}
+.nbdg{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gd),var(--gl));display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:900;color:var(--nd);flex-shrink:0}
+.ntxt{font-size:.8rem;font-weight:700;color:#fff}
+.nsub{font-size:.63rem;color:var(--gl)}
+.nul{display:flex;list-style:none;height:60px}
+.nul a{display:flex;align-items:center;padding:0 .9rem;height:100%;color:rgba(255,255,255,.7);text-decoration:none;font-size:.76rem;font-weight:500;border-bottom:3px solid transparent;margin-bottom:-3px;transition:all .2s}
+.nul a:hover{color:#fff;border-bottom-color:var(--gd)}
+.topbar{background:var(--gp);border-top:2px solid var(--gd);border-bottom:2px solid var(--gd);padding:.62rem 2rem;text-align:center;font-size:.8rem;font-weight:600;color:var(--nv)}
+.topbar a{color:var(--nv);text-decoration:underline;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(160deg,var(--nd) 0%,var(--nv) 55%,var(--nl) 100%);padding:7rem 2rem 4.5rem;text-align:center;position:relative;overflow:hidden}
+.hero:before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(200,168,75,.09) 0%,transparent 65%)}
+.hin{position:relative;z-index:1;max-width:700px;margin:0 auto}
 .htag{display:inline-flex;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(200,168,75,.4);padding:.38rem 1rem;border-radius:100px;margin-bottom:1.6rem;animation:fup .8s ease both}
-.htag span{font-size:.68rem;font-weight:600;color:var(--gold-light);letter-spacing:.14em;text-transform:uppercase}
+.htag span{font-size:.68rem;font-weight:600;color:var(--gl);letter-spacing:.14em;text-transform:uppercase}
 .hero h1{font-family:'Noto Serif KR',serif;font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.25;margin-bottom:.7rem;animation:fup .8s ease .1s both}
-.hero h1 em{color:var(--gold-light);font-style:normal}
-.hsu{font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2rem;animation:fup .8s ease .2s both}
-.hbt{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;animation:fup .8s ease .3s both}
-.bg{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy-dark);font-weight:700;font-size:.86rem;padding:.75rem 1.8rem;border-radius:6px;text-decoration:none;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;box-shadow:0 4px 16px rgba(200,168,75,.3)}
-.bg:hover{transform:translateY(-2px)}
-.bw{background:transparent;color:#fff;font-weight:600;font-size:.86rem;padding:.75rem 1.8rem;border-radius:6px;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s}
-.bw:hover{background:rgba(255,255,255,.1)}
-.stb{background:var(--navy);border-bottom:1px solid rgba(200,168,75,.2)}
-.sti{max-width:1100px;margin:0 auto;display:flex}
-.st{flex:1;padding:1.3rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
-.st:last-child{border-right:none}
-.stn{font-size:1.35rem;font-weight:900;color:var(--gold-light);display:block}
-.stl{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.22rem}
+.hero h1 em{color:var(--gl);font-style:normal}
+.hsub{font-size:.95rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:2rem;animation:fup .8s ease .2s both}
+.hbtn{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;animation:fup .8s ease .3s both}
+.btng{background:linear-gradient(135deg,var(--gd),var(--gl));color:var(--nd);font-weight:700;font-size:.86rem;padding:.75rem 1.8rem;border-radius:6px;text-decoration:none;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;box-shadow:0 4px 16px rgba(200,168,75,.3)}
+.btng:hover{transform:translateY(-2px)}
+.btnw{background:transparent;color:#fff;font-weight:600;font-size:.86rem;padding:.75rem 1.8rem;border-radius:6px;text-decoration:none;border:1.5px solid rgba(255,255,255,.4);cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s}
+.btnw:hover{background:rgba(255,255,255,.1)}
+.stbar{background:var(--nv);border-bottom:1px solid rgba(200,168,75,.2)}
+.stin{max-width:1100px;margin:0 auto;display:flex}
+.stit{flex:1;padding:1.3rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.stit:last-child{border-right:none}
+.stnum{font-size:1.35rem;font-weight:900;color:var(--gl);display:block}
+.stlb{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:.22rem}
 .sw{max-width:1100px;margin:0 auto;padding:4.5rem 2rem}
-.tag{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.26rem .78rem;border-radius:3px;margin-bottom:.75rem}
-.ttl{font-family:'Noto Serif KR',serif;font-size:clamp(1.4rem,2.5vw,1.85rem);font-weight:900;color:var(--navy-dark)}
-.ttl span{color:var(--gold)}
-.rul{display:block;width:36px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-pale));margin-top:.75rem;border-radius:2px}
-.sub{font-size:.87rem;color:var(--gray);line-height:1.7;margin-top:.65rem}
-.fg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
-.fc{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .25s;position:relative}
-.fc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--navy),var(--navy-light));transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.fc:hover{border-color:var(--navy-light);transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,44,91,.12)}
-.fc:hover::after{transform:scaleX(1)}
-.fp{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--gl),#dde2f0)}
-.fb{padding:1.5rem}
-.fn{display:inline-block;font-size:.66rem;font-weight:700;background:var(--navy);color:var(--gold-light);padding:.16rem .55rem;border-radius:3px;margin-bottom:.75rem}
-.fm{font-size:1rem;font-weight:700;color:var(--navy-dark);margin-bottom:.4rem}
-.fd{font-size:.8rem;color:var(--gray);line-height:1.65;margin-bottom:.9rem}
-.mr{display:flex;gap:.5rem;font-size:.75rem;margin-bottom:.28rem}
-.mk{color:var(--gray);min-width:52px;flex-shrink:0}
-.mv{color:var(--textm);font-weight:600}
-.bdg{display:inline-block;font-size:.66rem;padding:.18rem .6rem;border-radius:3px;font-weight:600;margin-top:.75rem;background:rgba(26,44,91,.08);color:var(--navy);border:1px solid rgba(26,44,91,.15)}
-.fh{font-size:.72rem;color:var(--gold);margin-top:.6rem;font-weight:600;opacity:0;transition:opacity .2s}
-.fc:hover .fh{opacity:1}
-.hws{background:var(--navy-dark)}
-.stp{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,.07);border-radius:12px;overflow:hidden;margin-top:1.75rem}
-.sp{background:rgba(255,255,255,.04);padding:1.65rem}
-.sp:hover{background:rgba(255,255,255,.09)}
-.spn{font-size:.67rem;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
-.spn::after{content:'';flex:1;height:1px;background:rgba(200,168,75,.25)}
-.spi{font-size:1.35rem;margin-bottom:.6rem}
-.spt{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.35rem}
-.spd{font-size:.77rem;color:rgba(255,255,255,.48);line-height:1.65}
-.nb3{margin-top:1.75rem;background:rgba(200,168,75,.12);border:1px solid rgba(200,168,75,.3);border-radius:10px;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start}
-.nb3i{font-size:1.5rem;flex-shrink:0}
-.nb3t{font-size:.83rem;color:rgba(255,255,255,.8);line-height:1.7}
-.nb3t strong{color:var(--gold-light)}
-.evs{background:var(--gl);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.eg{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
-.ec{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all .25s}
-.ec:hover{border-color:var(--navy-light);transform:translateY(-3px);box-shadow:0 12px 28px rgba(26,44,91,.1)}
-.et{width:100%;height:140px;object-fit:cover;display:block}
-.etf{height:140px;display:flex;align-items:center;justify-content:center;font-size:2.6rem}
-.etf.green{background:linear-gradient(135deg,#0a2e1a,#0d5c2e)}
-.etf.blue{background:linear-gradient(135deg,#0f1e42,#1a2c5b)}
-.etf.orange{background:linear-gradient(135deg,#2e1000,#7a2c00)}
-.etf.purple{background:linear-gradient(135deg,#1a0a30,#3b1060)}
-.eb{padding:1.25rem 1.4rem}
-.es{font-size:.66rem;font-weight:700;padding:.18rem .62rem;border-radius:3px;display:inline-block;margin-bottom:.58rem}
-.son{background:rgba(26,44,91,.1);color:var(--navy);border:1px solid rgba(26,44,91,.2)}
-.sup{background:var(--gold-pale);color:#7a5c1a;border:1px solid rgba(200,168,75,.3)}
-.sen{background:var(--gl);color:var(--gray);border:1px solid var(--border)}
-.em{font-size:.92rem;font-weight:700;color:var(--navy-dark);margin-bottom:.38rem;line-height:1.4}
-.ep{font-size:.73rem;color:var(--gray)}
-.eld,.eem{text-align:center;padding:3rem;color:var(--gray);font-size:.87rem}
-.nos{background:#fff}
-.ntb{width:100%;border-collapse:collapse;font-size:.84rem}
-.ntb th{background:var(--navy);color:#fff;padding:.7rem 1rem;text-align:left;font-weight:600;font-size:.78rem}
-.ntb th:first-child{width:60px;text-align:center}
-.ntb th:last-child{width:100px;text-align:center}
-.ntb td{padding:.78rem 1rem;border-bottom:1px solid var(--gl);vertical-align:middle}
-.ntb td:first-child{text-align:center;color:var(--gray);font-size:.76rem}
-.ntb td:last-child{text-align:center;color:var(--gray);font-size:.76rem}
-.ntb tr:hover td{background:var(--gl)}
-.nb4{background:none;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:.84rem;color:var(--navy-dark);text-align:left;padding:0}
-.nb4:hover{text-decoration:underline}
-.bim{font-size:.63rem;padding:.12rem .5rem;border-radius:3px;background:#fee2e2;color:#991b1b;font-weight:700;margin-right:.4rem}
-.nlo,.nem{text-align:center;padding:2.5rem;color:var(--gray);font-size:.87rem}
-.mps{background:#fff;border-top:1px solid var(--border)}
-.mpc{position:relative;display:inline-block;max-width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(26,44,91,.12)}
-.mpi{width:100%;max-width:900px;display:block;height:auto}
-.mpl{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
-.mpp{position:absolute;left:22.5%;top:37%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
-.pb{width:36px;height:36px;background:var(--navy);border:3px solid var(--gold);border-radius:50% 50% 50% 0;transform:rotate(-45deg);position:relative;box-shadow:0 4px 14px rgba(26,44,91,.4);animation:pbn 1.8s ease-in-out infinite}
-.pb::after{content:'';width:14px;height:14px;background:var(--gold-light);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
-@keyframes pbn{0%,100%{transform:rotate(-45deg) translateY(0)}50%{transform:rotate(-45deg) translateY(-6px)}}
-.pl{background:var(--navy-dark);color:var(--gold-light);font-size:.72rem;font-weight:700;padding:.3rem .75rem;border-radius:20px;white-space:nowrap;margin-top:4px;border:1px solid var(--gold)}
-.mpf{width:100%;height:400px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:.75rem;background:var(--gl);border-radius:12px;color:var(--gray);font-size:.85rem}
-.mpn{font-size:.78rem;color:var(--gray);margin-top:.75rem;line-height:1.6;background:var(--gl);border-radius:8px;padding:.7rem 1rem;border-left:3px solid var(--gold);max-width:900px}
-.sgs{background:var(--off)}
-.fw{background:#fff;border:1px solid var(--border);border-radius:14px;padding:2.25rem;max-width:640px;margin:0 auto;box-shadow:0 4px 24px rgba(26,44,91,.07)}
-.fwh{border-bottom:2px solid var(--navy);padding-bottom:.85rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.65rem}
-.fwi{width:32px;height:32px;background:var(--navy);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
-.fwh h3{font-size:.96rem;font-weight:700;color:var(--navy-dark)}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.fg3{margin-bottom:1.05rem}
-.fg3 label{display:block;font-size:.77rem;font-weight:700;color:var(--navy);margin-bottom:.36rem}
-.fg3 input,.fg3 select,.fg3 textarea{width:100%;background:var(--off);border:1.5px solid var(--border);border-radius:7px;padding:.62rem .9rem;color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:.84rem;outline:none;transition:border-color .2s}
-.fg3 input:focus,.fg3 select:focus,.fg3 textarea:focus{border-color:var(--navy);background:#fff}
-.fg3 textarea{resize:vertical;min-height:110px}
-.fsu{width:100%;background:var(--navy);color:#fff;font-weight:700;font-size:.9rem;padding:.86rem;border-radius:8px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;margin-top:.4rem}
-.fsu:hover{background:var(--navy-light)}
-.fsu:disabled{opacity:.5;cursor:not-allowed}
-footer{background:var(--navy-dark);border-top:3px solid var(--gold);padding:2.25rem;text-align:center}
-.flo{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:900;color:#fff;margin-bottom:.6rem}
-.flo span{color:var(--gold-light)}
-.fdv{width:34px;height:2px;background:var(--gold);margin:.6rem auto;border-radius:2px}
-.ftx{font-size:.77rem;color:rgba(255,255,255,.42);line-height:1.85}
-.ftx a{color:var(--gold-light);text-decoration:none}
-.ov{position:fixed;inset:0;background:rgba(10,20,60,.65);z-index:300;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s}
-.ov.open{opacity:1;pointer-events:all}
-.mo{background:#fff;border-radius:16px;max-width:500px;width:100%;overflow:hidden;transform:scale(.95);transition:transform .3s;box-shadow:0 24px 60px rgba(10,20,60,.3);max-height:90vh;overflow-y:auto}
-.ov.open .mo{transform:scale(1)}
-.mh{background:var(--navy);padding:1.35rem 1.6rem;display:flex;align-items:center;gap:.85rem}
-.mhi{font-size:1.6rem}
-.mh h3{font-size:1rem;font-weight:700;color:#fff;flex:1}
-.mhc{background:none;border:none;color:rgba(255,255,255,.6);font-size:1.4rem;cursor:pointer;line-height:1}
-.mbo{padding:1.6rem}
-.mds{font-size:.83rem;color:var(--textm);line-height:1.7;margin-bottom:1.1rem;padding-bottom:1.1rem;border-bottom:1px solid var(--border)}
-.mls{list-style:none}
-.mls li{display:flex;justify-content:space-between;font-size:.82rem;padding:.48rem 0;border-bottom:1px solid var(--gl)}
-.mls li:last-child{border-bottom:none}
-.mlk{color:var(--gray)}
-.mlv{color:var(--navy-dark);font-weight:600}
-.mcl{width:calc(100% - 3.2rem);margin:0 1.6rem 1.6rem;padding:.7rem;background:var(--navy);color:#fff;font-weight:700;border-radius:8px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
-.nmc{font-size:.88rem;color:var(--textm);line-height:1.85;white-space:pre-wrap}
-.nmm{font-size:.75rem;color:var(--gray);margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid var(--gl)}
-.at{background:var(--gl);border:1px solid var(--border);border-radius:6px;padding:.45rem .9rem;font-size:.78rem;font-weight:600;color:var(--navy);cursor:pointer;font-family:'Noto Sans KR',sans-serif}
-.at.on{background:var(--navy);color:#fff;border-color:var(--navy)}
-.tst{position:fixed;bottom:1.75rem;right:1.75rem;z-index:600;font-weight:700;font-size:.81rem;padding:.75rem 1.35rem;border-radius:8px;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
-.tst.ok{background:var(--navy);color:#fff;border-left:4px solid var(--gold)}
-.tst.er{background:#991b1b;color:#fff;border-left:4px solid #f87171}
-.tst.show{transform:translateY(0);opacity:1}
+.stag{display:inline-block;background:var(--nv);color:var(--gl);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.26rem .78rem;border-radius:3px;margin-bottom:.75rem}
+.sttl{font-family:'Noto Serif KR',serif;font-size:clamp(1.4rem,2.5vw,1.85rem);font-weight:900;color:var(--nd)}
+.sttl span{color:var(--gd)}
+.srul{display:block;width:36px;height:3px;background:linear-gradient(90deg,var(--gd),var(--gp));margin-top:.75rem;border-radius:2px}
+.ssub{font-size:.87rem;color:var(--gy);line-height:1.7;margin-top:.65rem}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.2rem}
+.fcard{background:#fff;border:1px solid var(--br);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .25s;position:relative}
+.fcard:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--nv),var(--nl));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.fcard:hover{border-color:var(--nl);transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,44,91,.12)}
+.fcard:hover:after{transform:scaleX(1)}
+.fimg{width:100%;height:160px;display:flex;align-items:center;justify-content:center;font-size:3rem;background:linear-gradient(135deg,var(--bg),#dde2f0)}
+.fbdy{padding:1.5rem}
+.fno{display:inline-block;font-size:.66rem;font-weight:700;background:var(--nv);color:var(--gl);padding:.16rem .55rem;border-radius:3px;margin-bottom:.75rem}
+.fnm{font-size:1rem;font-weight:700;color:var(--nd);margin-bottom:.4rem}
+.fds{font-size:.8rem;color:var(--gy);line-height:1.65;margin-bottom:.9rem}
+.frow{display:flex;gap:.5rem;font-size:.75rem;margin-bottom:.28rem}
+.fk{color:var(--gy);min-width:52px;flex-shrink:0}
+.fv{color:var(--tm);font-weight:600}
+.fbdg{display:inline-block;font-size:.66rem;padding:.18rem .6rem;border-radius:3px;font-weight:600;margin-top:.75rem;background:rgba(26,44,91,.08);color:var(--nv);border:1px solid rgba(26,44,91,.15)}
+.fhnt{font-size:.72rem;color:var(--gd);margin-top:.6rem;font-weight:600;opacity:0;transition:opacity .2s}
+.fcard:hover .fhnt{opacity:1}
+.hwsec{background:var(--nd)}
+.hwstps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(255,255,255,.07);border-radius:12px;overflow:hidden;margin-top:1.75rem}
+.hwstp{background:rgba(255,255,255,.04);padding:1.65rem}
+.hwstp:hover{background:rgba(255,255,255,.09)}
+.hwno{font-size:.67rem;font-weight:700;letter-spacing:.12em;color:var(--gd);text-transform:uppercase;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem}
+.hwno:after{content:'';flex:1;height:1px;background:rgba(200,168,75,.25)}
+.hwic{font-size:1.35rem;margin-bottom:.6rem}
+.hwtl{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.35rem}
+.hwds{font-size:.77rem;color:rgba(255,255,255,.48);line-height:1.65}
+.cknote{margin-top:1.75rem;background:rgba(200,168,75,.12);border:1px solid rgba(200,168,75,.3);border-radius:10px;padding:1.25rem 1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.ckic{font-size:1.5rem;flex-shrink:0}
+.cktx{font-size:.83rem;color:rgba(255,255,255,.8);line-height:1.7}
+.cktx strong{color:var(--gl)}
+.evsec{background:var(--bg);border-top:1px solid var(--br);border-bottom:1px solid var(--br)}
+.evgrd{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
+.evcd{background:#fff;border:1px solid var(--br);border-radius:12px;overflow:hidden;transition:all .25s}
+.evcd:hover{border-color:var(--nl);transform:translateY(-3px);box-shadow:0 12px 28px rgba(26,44,91,.1)}
+.evth{width:100%;height:140px;object-fit:cover;display:block}
+.evfb{height:140px;display:flex;align-items:center;justify-content:center;font-size:2.6rem}
+.evfb.green{background:linear-gradient(135deg,#0a2e1a,#0d5c2e)}
+.evfb.blue{background:linear-gradient(135deg,#0f1e42,#1a2c5b)}
+.evfb.orange{background:linear-gradient(135deg,#2e1000,#7a2c00)}
+.evfb.purple{background:linear-gradient(135deg,#1a0a30,#3b1060)}
+.evbd{padding:1.25rem 1.4rem}
+.evst{font-size:.66rem;font-weight:700;padding:.18rem .62rem;border-radius:3px;display:inline-block;margin-bottom:.58rem}
+.ston{background:rgba(26,44,91,.1);color:var(--nv);border:1px solid rgba(26,44,91,.2)}
+.stup{background:var(--gp);color:#7a5c1a;border:1px solid rgba(200,168,75,.3)}
+.sted{background:var(--bg);color:var(--gy);border:1px solid var(--br)}
+.evtl{font-size:.92rem;font-weight:700;color:var(--nd);margin-bottom:.38rem;line-height:1.4}
+.evpr{font-size:.73rem;color:var(--gy)}
+.evld,.evem{text-align:center;padding:3rem;color:var(--gy);font-size:.87rem}
+.notsec{background:#fff}
+.nttb{width:100%;border-collapse:collapse;font-size:.84rem}
+.nttb th{background:var(--nv);color:#fff;padding:.7rem 1rem;text-align:left;font-weight:600;font-size:.78rem}
+.nttb th:first-child{width:60px;text-align:center}
+.nttb th:last-child{width:100px;text-align:center}
+.nttb td{padding:.78rem 1rem;border-bottom:1px solid var(--bg);vertical-align:middle}
+.nttb td:first-child{text-align:center;color:var(--gy);font-size:.76rem}
+.nttb td:last-child{text-align:center;color:var(--gy);font-size:.76rem}
+.nttb tr:hover td{background:var(--bg)}
+.ntbtn{background:none;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;font-size:.84rem;color:var(--nd);text-align:left;padding:0}
+.ntbtn:hover{text-decoration:underline}
+.bimp{font-size:.63rem;padding:.12rem .5rem;border-radius:3px;background:#fee2e2;color:#991b1b;font-weight:700;margin-right:.4rem}
+.ntld,.ntem{text-align:center;padding:2.5rem;color:var(--gy);font-size:.87rem}
+.mapsec{background:#fff;border-top:1px solid var(--br)}
+.mapwrp{position:relative;display:inline-block;max-width:100%;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(26,44,91,.12)}
+.mapimg{width:100%;max-width:900px;display:block;height:auto}
+.mappnl{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.mappin{position:absolute;left:22.5%;top:37%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center}
+.pinbd{width:36px;height:36px;background:var(--nv);border:3px solid var(--gd);border-radius:50% 50% 50% 0;transform:rotate(-45deg);position:relative;box-shadow:0 4px 14px rgba(26,44,91,.4);animation:pnbn 1.8s ease-in-out infinite}
+.pinbd:after{content:'';width:14px;height:14px;background:var(--gl);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+@keyframes pnbn{0%,100%{transform:rotate(-45deg) translateY(0)}50%{transform:rotate(-45deg) translateY(-6px)}}
+.pinlb{background:var(--nd);color:var(--gl);font-size:.72rem;font-weight:700;padding:.3rem .75rem;border-radius:20px;white-space:nowrap;margin-top:4px;border:1px solid var(--gd)}
+.mapfl{width:100%;height:400px;display:none;align-items:center;justify-content:center;flex-direction:column;gap:.75rem;background:var(--bg);border-radius:12px;color:var(--gy);font-size:.85rem}
+.mapnt{font-size:.78rem;color:var(--gy);margin-top:.75rem;line-height:1.6;background:var(--bg);border-radius:8px;padding:.7rem 1rem;border-left:3px solid var(--gd);max-width:900px}
+.sugsec{background:var(--of)}
+.sugwrp{background:#fff;border:1px solid var(--br);border-radius:14px;padding:2.25rem;max-width:640px;margin:0 auto;box-shadow:0 4px 24px rgba(26,44,91,.07)}
+.sughd{border-bottom:2px solid var(--nv);padding-bottom:.85rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.65rem}
+.sugic{width:32px;height:32px;background:var(--nv);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.sughd h3{font-size:.96rem;font-weight:700;color:var(--nd)}
+.fmrw{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fmgp{margin-bottom:1.05rem}
+.fmgp label{display:block;font-size:.77rem;font-weight:700;color:var(--nv);margin-bottom:.36rem}
+.fmgp input,.fmgp select,.fmgp textarea{width:100%;background:var(--of);border:1.5px solid var(--br);border-radius:7px;padding:.62rem .9rem;color:var(--tx);font-family:'Noto Sans KR',sans-serif;font-size:.84rem;outline:none;transition:border-color .2s}
+.fmgp input:focus,.fmgp select:focus,.fmgp textarea:focus{border-color:var(--nv);background:#fff}
+.fmgp textarea{resize:vertical;min-height:110px}
+.fmsb{width:100%;background:var(--nv);color:#fff;font-weight:700;font-size:.9rem;padding:.86rem;border-radius:8px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .2s;margin-top:.4rem}
+.fmsb:hover{background:var(--nl)}
+.fmsb:disabled{opacity:.5;cursor:not-allowed}
+footer{background:var(--nd);border-top:3px solid var(--gd);padding:2.25rem;text-align:center}
+.ftlg{font-family:'Noto Serif KR',serif;font-size:.95rem;font-weight:900;color:#fff;margin-bottom:.6rem}
+.ftlg span{color:var(--gl)}
+.ftdv{width:34px;height:2px;background:var(--gd);margin:.6rem auto;border-radius:2px}
+.fttx{font-size:.77rem;color:rgba(255,255,255,.42);line-height:1.85}
+.fttx a{color:var(--gl);text-decoration:none}
+.ovly{position:fixed;inset:0;background:rgba(10,20,60,.65);z-index:300;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.ovly.open{opacity:1;pointer-events:all}
+.mdal{background:#fff;border-radius:16px;max-width:500px;width:100%;overflow:hidden;transform:scale(.95);transition:transform .3s;box-shadow:0 24px 60px rgba(10,20,60,.3);max-height:90vh;overflow-y:auto}
+.ovly.open .mdal{transform:scale(1)}
+.mdhd{background:var(--nv);padding:1.35rem 1.6rem;display:flex;align-items:center;gap:.85rem}
+.mdhic{font-size:1.6rem}
+.mdhd h3{font-size:1rem;font-weight:700;color:#fff;flex:1}
+.mdhcl{background:none;border:none;color:rgba(255,255,255,.6);font-size:1.4rem;cursor:pointer;line-height:1}
+.mdbd{padding:1.6rem}
+.mddsc{font-size:.83rem;color:var(--tm);line-height:1.7;margin-bottom:1.1rem;padding-bottom:1.1rem;border-bottom:1px solid var(--br)}
+.mdls{list-style:none}
+.mdls li{display:flex;justify-content:space-between;font-size:.82rem;padding:.48rem 0;border-bottom:1px solid var(--bg)}
+.mdls li:last-child{border-bottom:none}
+.mdlk{color:var(--gy)}
+.mdlv{color:var(--nd);font-weight:600}
+.mdcl{width:calc(100% - 3.2rem);margin:0 1.6rem 1.6rem;padding:.7rem;background:var(--nv);color:#fff;font-weight:700;border-radius:8px;border:none;cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.ntct{font-size:.88rem;color:var(--tm);line-height:1.85;white-space:pre-wrap}
+.ntmt{font-size:.75rem;color:var(--gy);margin-bottom:1rem;padding-bottom:.8rem;border-bottom:1px solid var(--bg)}
+.adtb{background:var(--bg);border:1px solid var(--br);border-radius:6px;padding:.45rem .9rem;font-size:.78rem;font-weight:600;color:var(--nv);cursor:pointer;font-family:'Noto Sans KR',sans-serif}
+.adtb.on{background:var(--nv);color:#fff;border-color:var(--nv)}
+.tost{position:fixed;bottom:1.75rem;right:1.75rem;z-index:600;font-weight:700;font-size:.81rem;padding:.75rem 1.35rem;border-radius:8px;transform:translateY(80px);opacity:0;transition:all .3s;max-width:300px}
+.tost.ok{background:var(--nv);color:#fff;border-left:4px solid var(--gd)}
+.tost.er{background:#991b1b;color:#fff;border-left:4px solid #f87171}
+.tost.show{transform:translateY(0);opacity:1}
 @keyframes fup{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.on{opacity:1;transform:translateY(0)}
-@media(max-width:640px){nav{padding:0 1rem}.nli{display:none}.sw{padding:3.5rem 1rem}.fr{grid-template-columns:1fr}.sti{display:grid;grid-template-columns:1fr 1fr}.st:nth-child(even){border-right:none}.st{border-bottom:1px solid rgba(255,255,255,.08)}.st:nth-last-child(-n+2){border-bottom:none}.ntb th:last-child,.ntb td:last-child{display:none}}
+@media(max-width:640px){nav{padding:0 1rem}.nul{display:none}.sw{padding:3.5rem 1rem}.fmrw{grid-template-columns:1fr}.stin{display:grid;grid-template-columns:1fr 1fr}.stit:nth-child(even){border-right:none}.stit{border-bottom:1px solid rgba(255,255,255,.08)}.stit:nth-last-child(-n+2){border-bottom:none}.nttb th:last-child,.nttb td:last-child{display:none}}
 </style>
 </head>
 <body>
+
 <nav>
-  <div class="nl">
-    <div class="nb2">유</div>
-    <div><div class="nt">유한대학교 웰니스스테이션</div><div class="ns">Yuhan University Wellness Station</div></div>
+  <div class="nlogo">
+    <div class="nbdg">유</div>
+    <div><div class="ntxt">유한대학교 웰니스스테이션</div><div class="nsub">Yuhan University Wellness Station</div></div>
   </div>
-  <ul class="nli">
-    <li><a href="#fac">시설안내</a></li>
-    <li><a href="#how">이용방법</a></li>
-    <li><a href="#evt">이벤트</a></li>
-    <li><a href="#not">공지사항</a></li>
-    <li><a href="#loc">찾아오기</a></li>
-    <li><a href="#sug">건의게시판</a></li>
+  <ul class="nul">
+    <li><a href="#sec-fac">시설안내</a></li>
+    <li><a href="#sec-how">이용방법</a></li>
+    <li><a href="#sec-evt">이벤트</a></li>
+    <li><a href="#sec-not">공지사항</a></li>
+    <li><a href="#sec-loc">찾아오기</a></li>
+    <li><a href="#sec-sug">건의게시판</a></li>
   </ul>
 </nav>
-<div class="nbar" style="margin-top:60px">
+
+<div class="topbar" style="margin-top:60px">
   📍 <strong>학생회관 4층</strong> &nbsp;|&nbsp; 🕐 <strong>평일 09:00 ~ 17:40</strong> &nbsp;|&nbsp;
-  📲 <a onclick="gA()">이용 신청하기</a> &nbsp;|&nbsp; 💚 <strong>모든 시설 무료</strong>
+  📲 <a onclick="doApply()">이용 신청하기</a> &nbsp;|&nbsp; 💚 <strong>모든 시설 무료</strong>
 </div>
+
 <div class="hero">
-  <div class="hi">
+  <div class="hin">
     <div class="htag"><span>🏫 유한대학교 학생복지팀</span></div>
     <h1>유한대학교<br><em>웰니스스테이션</em><br>이용 안내</h1>
-    <p class="hsu">인생네컷 · 노래방 · 탁구장 · 헬스장<br>학생 여러분의 건강하고 즐거운 캠퍼스 생활을 지원합니다.</p>
-    <div class="hbt">
-      <button class="bg" onclick="gA()">📋 이용 신청하기</button>
-      <a href="#fac" class="bw">시설 안내 보기</a>
+    <p class="hsub">인생네컷 · 노래방 · 탁구장 · 헬스장<br>학생 여러분의 건강하고 즐거운 캠퍼스 생활을 지원합니다.</p>
+    <div class="hbtn">
+      <button class="btng" onclick="doApply()">📋 이용 신청하기</button>
+      <a href="#sec-fac" class="btnw">시설 안내 보기</a>
     </div>
   </div>
 </div>
-<div class="stb"><div class="sti">
-  <div class="st"><span class="stn">4</span><div class="stl">운영 시설</div></div>
-  <div class="st"><span class="stn">09:00</span><div class="stl">평일 운영 시작</div></div>
-  <div class="st"><span class="stn">17:40</span><div class="stl">퇴실 마감</div></div>
-  <div class="st"><span class="stn">4F</span><div class="stl">학생회관 4층</div></div>
-</div></div>
-<div id="fac"><div class="sw">
-  <div style="margin-bottom:2rem">
-    <div class="tag rv">Facilities</div>
-    <h2 class="ttl rv">시설 <span>소개 및 이용 안내</span><span class="rul"></span></h2>
-    <p class="sub rv">카드를 클릭하면 상세 이용 규정을 확인할 수 있습니다.</p>
+
+<div class="stbar">
+  <div class="stin">
+    <div class="stit"><span class="stnum">4</span><div class="stlb">운영 시설</div></div>
+    <div class="stit"><span class="stnum">09:00</span><div class="stlb">평일 운영 시작</div></div>
+    <div class="stit"><span class="stnum">17:40</span><div class="stlb">퇴실 마감</div></div>
+    <div class="stit"><span class="stnum">4F</span><div class="stlb">학생회관 4층</div></div>
   </div>
-  <div class="fg2">
-    <div class="fc rv" onclick="sF('p')"><div class="fp">📸</div><div class="fb"><div class="fn">01</div><div class="fm">인생네컷</div><div class="fd">감성 포토부스. 다양한 프레임으로 추억을 남겨보세요.</div><div class="mr"><span class="mk">이용시간</span><span class="mv">~ 17:40까지</span></div><span class="bdg">✓ 무료</span><div class="fh">상세 보기 →</div></div></div>
-    <div class="fc rv" onclick="sF('k')"><div class="fp">🎤</div><div class="fb"><div class="fn">02</div><div class="fm">노래방</div><div class="fd">1회 최대 30분 이용. 17:40까지 퇴실.</div><div class="mr"><span class="mk">이용시간</span><span class="mv">최대 30분</span></div><span class="bdg">✓ 무료</span><div class="fh">상세 보기 →</div></div></div>
-    <div class="fc rv" onclick="sF('t')"><div class="fp">🏓</div><div class="fb"><div class="fn">03</div><div class="fm">탁구장</div><div class="fd">신발 제한 없음. 라켓 셋트 지급 후 반납. 최대 1시간.</div><div class="mr"><span class="mk">이용시간</span><span class="mv">최대 1시간</span></div><span class="bdg">✓ 무료</span><div class="fh">상세 보기 →</div></div></div>
-    <div class="fc rv" onclick="sF('g')"><div class="fp">💪</div><div class="fb"><div class="fn">04</div><div class="fm">헬스장</div><div class="fd">전용 신발 필수. 탈의실 사물함 이용 가능.</div><div class="mr"><span class="mk">신발</span><span class="mv">전용 운동화 필수</span></div><span class="bdg">✓ 무료</span><div class="fh">상세 보기 →</div></div></div>
-  </div>
-</div></div>
-<div id="how" class="hws"><div class="sw">
-  <div style="margin-bottom:2rem">
-    <div class="tag rv" style="background:rgba(255,255,255,.12);color:var(--gold-light)">How to Use</div>
-    <h2 class="ttl rv" style="color:#fff">이용 방법<span class="rul" style="background:linear-gradient(90deg,var(--gold),transparent)"></span></h2>
-  </div>
-  <div class="nb3 rv"><div class="nb3i">📲</div><div class="nb3t"><strong>[공통 입장]</strong> 모든 시설 입장 시 체크인 필수.<br>① <strong>QR 체크인</strong> — 입구 QR 스캔<br>② <strong><span style="cursor:pointer;text-decoration:underline" onclick="gA()">이용 신청하기</span></strong> — 신청 폼 작성</div></div>
-  <div class="stp">
-    <div class="sp rv"><div class="spn">STEP 01</div><div class="spi">📲</div><div class="spt">체크인 또는 신청</div><div class="spd">QR 스캔 또는 이용 신청 폼 작성</div></div>
-    <div class="sp rv"><div class="spn">STEP 02</div><div class="spi">🎽</div><div class="spt">준비물 확인</div><div class="spd">헬스장 전용 신발 필수. 탁구장 라켓 수령</div></div>
-    <div class="sp rv"><div class="spn">STEP 03</div><div class="spi">🏃</div><div class="spt">시설 이용</div><div class="spd">노래방 30분, 탁구장 1시간 제한</div></div>
-    <div class="sp rv"><div class="spn">STEP 04</div><div class="spi">🚪</div><div class="spt">17:40 전 퇴실</div><div class="spd">라켓 반납, 장비 정리 후 퇴실</div></div>
-  </div>
-  <div style="text-align:center;margin-top:2rem"><button class="bg" onclick="gA()">📋 이용 신청하기</button></div>
-</div></div>
-<div id="evt" class="evs"><div class="sw">
-  <div style="margin-bottom:2rem">
-    <div class="tag rv">Events</div>
-    <h2 class="ttl rv">이벤트<span class="rul"></span></h2>
-  </div>
-  <div id="evBox"><div class="eld">🔄 불러오는 중...</div></div>
-</div></div>
-<div id="not" class="nos"><div class="sw">
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
-    <div><div class="tag rv">Notice</div><h2 class="ttl rv">공지사항<span class="rul"></span></h2></div>
-    <button class="bg rv" onclick="oA()" style="font-size:.78rem;padding:.6rem 1.2rem;height:fit-content">🔐 관리자</button>
-  </div>
-  <table class="ntb rv"><thead><tr><th>번호</th><th>제목</th><th>날짜</th></tr></thead>
-  <tbody id="notBox"><tr><td colspan="3" class="nlo">🔄 불러오는 중...</td></tr></tbody></table>
-</div></div>
-<div id="loc" class="mps"><div class="sw">
-  <div style="margin-bottom:2rem">
-    <div class="tag rv">Location</div>
-    <h2 class="ttl rv">찾아오기<span class="rul"></span></h2>
-    <p class="sub rv">웰니스스테이션은 <strong>학생회관(04번 건물) 4층</strong>에 위치합니다.</p>
-  </div>
-  <div style="text-align:center" class="rv">
-    <div class="mpc">
-      <img id="mImg" class="mpi" src="웰니스스테이션_위치.jpg" alt="캠퍼스 지도">
-      <div class="mpf" id="mFb"><span style="font-size:2rem">🗺️</span><span>지도 이미지를 불러올 수 없습니다</span></div>
-      <div class="mpl"><div class="mpp"><div class="pb"></div><div class="pl">📍 04 학생회관 4층</div></div></div>
-    </div>
-    <div class="mpn">📌 <strong>경인국도(유일한로)</strong> 방면 정문 진입 후 학생회관(04번 건물) 4층 &nbsp;|&nbsp; 🚇 소사역 하차 후 도보 약 15분</div>
-  </div>
-</div></div>
-<div id="sug" class="sgs"><div class="sw">
-  <div style="text-align:center;margin-bottom:2rem">
-    <div class="tag rv" style="margin:0 auto .75rem">Suggestion Board</div>
-    <h2 class="ttl rv" style="text-align:center">건의게시판<span class="rul" style="margin:.75rem auto 0"></span></h2>
-    <p class="sub rv" style="text-align:center">불편한 점이나 개선 사항을 자유롭게 남겨주세요.</p>
-  </div>
-  <div class="fw rv">
-    <div class="fwh"><div class="fwi">✉️</div><h3>건의 접수 양식</h3></div>
-    <div class="fr">
-      <div class="fg3"><label>학과</label><input type="text" id="iDp" placeholder="예) 컴퓨터정보과"></div>
-      <div class="fg3"><label>학번</label><input type="text" id="iSd" placeholder="예) 2024001234"></div>
-    </div>
-    <div class="fg3"><label>관련 시설</label><select id="iFc"><option value="">시설 선택</option><option>인생네컷</option><option>노래방</option><option>탁구장</option><option>헬스장</option><option>전체/기타</option></select></div>
-    <div class="fg3"><label>건의 제목</label><input type="text" id="iSj" placeholder="제목을 입력해주세요"></div>
-    <div class="fg3"><label>내용</label><textarea id="iCt" placeholder="불편한 점, 개선 사항을 자유롭게 작성해주세요."></textarea></div>
-    <button class="fsu" id="sgBtn" onclick="sbSg()">✉️ 건의 제출하기</button>
-  </div>
-</div></div>
-<footer>
-  <div class="flo">유한대학교 <span>웰니스스테이션</span></div>
-  <div class="fdv"></div>
-  <div class="ftx">학생복지팀 · 학생회관 4층 · 평일 09:00 ~ 17:40<br>
-  📞 <a href="tel:0226100330">02-2610-0330~1</a> &nbsp;|&nbsp; ✉️ <a href="mailto:student@yuhan.ac.kr">student@yuhan.ac.kr</a></div>
-</footer>
-<div class="ov" id="fOv" onclick="cO('fOv',event)">
-  <div class="mo"><div class="mh"><div class="mhi" id="fIc"></div><h3 id="fTl"></h3><button class="mhc" onclick="cO('fOv')">✕</button></div>
-  <div class="mbo"><p class="mds" id="fDs"></p><ul class="mls" id="fLs"></ul></div>
-  <button class="mcl" onclick="cO('fOv')">닫기</button></div>
 </div>
-<div class="ov" id="nOv" onclick="cO('nOv',event)">
-  <div class="mo"><div class="mh"><h3 id="nTl" style="flex:1"></h3><button class="mhc" onclick="cO('nOv')">✕</button></div>
-  <div class="mbo"><div class="nmm" id="nMt"></div><div class="nmc" id="nCt"></div></div>
-  <button class="mcl" onclick="cO('nOv')">닫기</button></div>
-</div>
-<div class="ov" id="aOv" onclick="cO('aOv',event)">
-  <div class="mo" style="max-width:560px">
-    <div class="mh"><div class="mhi">🔐</div><h3 id="aTl">관리자 로그인</h3><button class="mhc" onclick="cO('aOv')">✕</button></div>
-    <div class="mbo">
-      <div id="aLg"><div class="fg3"><label>비밀번호</label><input type="password" id="aPw" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter')dLg()"></div><button class="fsu" onclick="dLg()">로그인</button></div>
-      <div id="aPn" style="display:none">
-        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem">
-          <button class="at on" onclick="swT('n',this)">📋 공지사항</button>
-          <button class="at" onclick="swT('e',this)">🎉 이벤트</button>
+
+<div id="sec-fac">
+  <div class="sw">
+    <div style="margin-bottom:2rem">
+      <div class="stag rv">Facilities</div>
+      <h2 class="sttl rv">시설 <span>소개 및 이용 안내</span><span class="srul"></span></h2>
+      <p class="ssub rv">카드를 클릭하면 상세 이용 규정을 확인할 수 있습니다. 모든 시설 재학생 무료.</p>
+    </div>
+    <div class="fgrid">
+      <div class="fcard rv" onclick="showFac('pb')">
+        <div class="fimg">📸</div>
+        <div class="fbdy">
+          <div class="fno">01</div><div class="fnm">인생네컷</div>
+          <div class="fds">감성 포토부스. 다양한 프레임·필터로 특별한 추억을 남겨보세요.</div>
+          <div class="frow"><span class="fk">이용시간</span><span class="fv">~ 17:40까지</span></div>
+          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
         </div>
-        <div id="tpN">
-          <div class="fg3"><label>제목</label><input type="text" id="nTi" placeholder="공지 제목"></div>
-          <div class="fg3"><label>내용</label><textarea id="nCo" placeholder="공지 내용" style="min-height:80px"></textarea></div>
-          <div class="fg3" style="display:flex;align-items:center;gap:.5rem"><input type="checkbox" id="nIm" style="width:auto"><label for="nIm" style="margin:0;font-size:.82rem;color:var(--navy)">중요 공지</label></div>
-          <button class="fsu" onclick="aN()">공지 등록</button>
+      </div>
+      <div class="fcard rv" onclick="showFac('kr')">
+        <div class="fimg">🎤</div>
+        <div class="fbdy">
+          <div class="fno">02</div><div class="fnm">노래방</div>
+          <div class="fds">1회 최대 30분 이용. 입장 시 QR 체크인 필수. 17:40까지 퇴실.</div>
+          <div class="frow"><span class="fk">최대이용</span><span class="fv">30분</span></div>
+          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
         </div>
-        <div id="tpE" style="display:none">
-          <div class="fg3"><label>제목</label><input type="text" id="eTi" placeholder="이벤트 제목"></div>
-          <div class="fr">
-            <div class="fg3"><label>시작일</label><input type="date" id="eSt"></div>
-            <div class="fg3"><label>종료일</label><input type="date" id="eEd"></div>
-          </div>
-          <div class="fr">
-            <div class="fg3"><label>상태</label><select id="eSs"><option>진행중</option><option>예정</option><option>종료</option></select></div>
-            <div class="fg3"><label>색상</label><select id="eTh"><option value="blue">블루</option><option value="green">그린</option><option value="orange">오렌지</option><option value="purple">퍼플</option></select></div>
-          </div>
-          <div class="fg3"><label>이모지</label><input type="text" id="eIc" placeholder="🎉" style="max-width:80px"></div>
-          <div class="fg3"><label>이미지 URL <small style="color:var(--gray);font-weight:400">(Drive 공유링크)</small></label><input type="text" id="eIm" placeholder="https://drive.google.com/..."></div>
-          <button class="fsu" onclick="aE()">이벤트 등록</button>
+      </div>
+      <div class="fcard rv" onclick="showFac('pp')">
+        <div class="fimg">🏓</div>
+        <div class="fbdy">
+          <div class="fno">03</div><div class="fnm">탁구장</div>
+          <div class="fds">신발 제한 없음. 라켓 셋트 지급 후 반납. 최대 1시간 이용.</div>
+          <div class="frow"><span class="fk">최대이용</span><span class="fv">1시간</span></div>
+          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
+        </div>
+      </div>
+      <div class="fcard rv" onclick="showFac('gm')">
+        <div class="fimg">💪</div>
+        <div class="fbdy">
+          <div class="fno">04</div><div class="fnm">헬스장</div>
+          <div class="fds">전용 신발 필수. 탈의실 사물함 이용 가능. 운동 후 장비 정리.</div>
+          <div class="frow"><span class="fk">신발</span><span class="fv">전용 운동화 필수</span></div>
+          <span class="fbdg">✓ 무료</span><div class="fhnt">상세 보기 →</div>
         </div>
       </div>
     </div>
-    <button class="mcl" onclick="cO('aOv')">닫기</button>
   </div>
 </div>
-<div class="tst" id="tst"></div>
+
+<div id="sec-how" class="hwsec">
+  <div class="sw">
+    <div style="margin-bottom:2rem">
+      <div class="stag rv" style="background:rgba(255,255,255,.12);color:var(--gl)">How to Use</div>
+      <h2 class="sttl rv" style="color:#fff">이용 방법<span class="srul" style="background:linear-gradient(90deg,var(--gd),transparent)"></span></h2>
+    </div>
+    <div class="cknote rv">
+      <div class="ckic">📲</div>
+      <div class="cktx">
+        <strong>[공통 입장 방법]</strong> 모든 시설 입장 시 체크인 필수.<br>
+        ① <strong>QR 체크인</strong> — 스테이션 입구 QR코드 스캔<br>
+        ② <strong><span style="cursor:pointer;text-decoration:underline" onclick="doApply()">이용 신청하기</span></strong> — 신청 폼 작성 후 입장
+      </div>
+    </div>
+    <div class="hwstps">
+      <div class="hwstp rv"><div class="hwno">STEP 01</div><div class="hwic">📲</div><div class="hwtl">QR 체크인 또는 신청</div><div class="hwds">입구 QR 스캔 또는 이용 신청 폼 작성</div></div>
+      <div class="hwstp rv"><div class="hwno">STEP 02</div><div class="hwic">🎽</div><div class="hwtl">준비물 확인</div><div class="hwds">헬스장 전용 신발 필수. 탁구장 라켓 수령</div></div>
+      <div class="hwstp rv"><div class="hwno">STEP 03</div><div class="hwic">🏃</div><div class="hwtl">시설 이용</div><div class="hwds">노래방 30분, 탁구장 1시간 제한</div></div>
+      <div class="hwstp rv"><div class="hwno">STEP 04</div><div class="hwic">🚪</div><div class="hwtl">17:40 전 퇴실</div><div class="hwds">라켓 반납, 장비·개인짐 정리 후 퇴실</div></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <button class="btng" onclick="doApply()">📋 이용 신청하기</button>
+    </div>
+  </div>
+</div>
+
+<div id="sec-evt" class="evsec">
+  <div class="sw">
+    <div style="margin-bottom:2rem">
+      <div class="stag rv">Events</div>
+      <h2 class="sttl rv">이벤트<span class="srul"></span></h2>
+      <p class="ssub rv">웰니스스테이션 이벤트를 확인하세요.</p>
+    </div>
+    <div id="evBox"><div class="evld">🔄 불러오는 중...</div></div>
+  </div>
+</div>
+
+<div id="sec-not" class="notsec">
+  <div class="sw">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem">
+      <div>
+        <div class="stag rv">Notice</div>
+        <h2 class="sttl rv">공지사항<span class="srul"></span></h2>
+      </div>
+      <button class="btng rv" onclick="openAdmin()" style="font-size:.78rem;padding:.6rem 1.2rem;height:fit-content">🔐 관리자</button>
+    </div>
+    <table class="nttb rv">
+      <thead><tr><th>번호</th><th>제목</th><th>날짜</th></tr></thead>
+      <tbody id="notBox"><tr><td colspan="3" class="ntld">🔄 불러오는 중...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div id="sec-loc" class="mapsec">
+  <div class="sw">
+    <div style="margin-bottom:2rem">
+      <div class="stag rv">Location</div>
+      <h2 class="sttl rv">찾아오기<span class="srul"></span></h2>
+      <p class="ssub rv">웰니스스테이션은 <strong>학생회관(04번 건물) 4층</strong>에 위치합니다.</p>
+    </div>
+    <div style="text-align:center" class="rv">
+      <div class="mapwrp">
+        <img id="mapImg" class="mapimg" src="웰니스스테이션_위치.jpg" alt="캠퍼스 지도">
+        <div class="mapfl" id="mapFb">
+          <span style="font-size:2rem">🗺️</span>
+          <span>캠퍼스 지도 이미지를 불러올 수 없습니다</span>
+        </div>
+        <div class="mappnl">
+          <div class="mappin">
+            <div class="pinbd"></div>
+            <div class="pinlb">📍 04 학생회관 4층</div>
+          </div>
+        </div>
+      </div>
+      <div class="mapnt">
+        📌 <strong>경인국도(유일한로)</strong> 방면 정문 진입 후 학생회관(04번 건물) 4층 &nbsp;|&nbsp;
+        🚇 소사역 하차 후 버스 이용 또는 도보 약 15분
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="sec-sug" class="sugsec">
+  <div class="sw">
+    <div style="text-align:center;margin-bottom:2rem">
+      <div class="stag rv" style="margin:0 auto .75rem">Suggestion Board</div>
+      <h2 class="sttl rv" style="text-align:center">건의게시판<span class="srul" style="margin:.75rem auto 0"></span></h2>
+      <p class="ssub rv" style="text-align:center">불편한 점이나 개선 사항을 자유롭게 남겨주세요.</p>
+    </div>
+    <div class="sugwrp rv">
+      <div class="sughd"><div class="sugic">✉️</div><h3>건의 접수 양식</h3></div>
+      <div class="fmrw">
+        <div class="fmgp"><label>학과</label><input type="text" id="inDpt" placeholder="예) 컴퓨터정보과"></div>
+        <div class="fmgp"><label>학번</label><input type="text" id="inSid" placeholder="예) 2024001234"></div>
+      </div>
+      <div class="fmgp">
+        <label>관련 시설</label>
+        <select id="inFac">
+          <option value="">시설 선택</option>
+          <option>인생네컷</option><option>노래방</option><option>탁구장</option><option>헬스장</option><option>전체/기타</option>
+        </select>
+      </div>
+      <div class="fmgp"><label>건의 제목</label><input type="text" id="inSbj" placeholder="제목을 입력해주세요"></div>
+      <div class="fmgp"><label>내용</label><textarea id="inCnt" placeholder="불편한 점, 개선 사항을 자유롭게 작성해주세요."></textarea></div>
+      <button class="fmsb" id="sugBtn" onclick="submitSug()">✉️ 건의 제출하기</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="ftlg">유한대학교 <span>웰니스스테이션</span></div>
+  <div class="ftdv"></div>
+  <div class="fttx">
+    학생복지팀 · 학생회관 4층 (Wellness Station) · 평일 09:00 ~ 17:40<br>
+    📞 <a href="tel:0226100330">02-2610-0330~1</a> &nbsp;|&nbsp; ✉️ <a href="mailto:student@yuhan.ac.kr">student@yuhan.ac.kr</a>
+  </div>
+</footer>
+
+<!-- 시설 상세 모달 -->
+<div class="ovly" id="facOvly" onclick="closeOvly('facOvly',event)">
+  <div class="mdal">
+    <div class="mdhd"><div class="mdhic" id="facIcon"></div><h3 id="facTitle"></h3><button class="mdhcl" onclick="closeOvly('facOvly')">✕</button></div>
+    <div class="mdbd"><p class="mddsc" id="facDesc"></p><ul class="mdls" id="facList"></ul></div>
+    <button class="mdcl" onclick="closeOvly('facOvly')">닫기</button>
+  </div>
+</div>
+
+<!-- 공지 상세 모달 -->
+<div class="ovly" id="notOvly" onclick="closeOvly('notOvly',event)">
+  <div class="mdal">
+    <div class="mdhd"><h3 id="notTitle" style="flex:1"></h3><button class="mdhcl" onclick="closeOvly('notOvly')">✕</button></div>
+    <div class="mdbd"><div class="ntmt" id="notMeta"></div><div class="ntct" id="notCont"></div></div>
+    <button class="mdcl" onclick="closeOvly('notOvly')">닫기</button>
+  </div>
+</div>
+
+<!-- 관리자 모달 -->
+<div class="ovly" id="admOvly" onclick="closeOvly('admOvly',event)">
+  <div class="mdal" style="max-width:560px">
+    <div class="mdhd"><div class="mdhic">🔐</div><h3 id="admTitle">관리자 로그인</h3><button class="mdhcl" onclick="closeOvly('admOvly')">✕</button></div>
+    <div class="mdbd">
+      <div id="admLogin">
+        <div class="fmgp"><label>관리자 비밀번호</label><input type="password" id="admPw" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter')doLogin()"></div>
+        <button class="fmsb" onclick="doLogin()">로그인</button>
+      </div>
+      <div id="admPanel" style="display:none">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem">
+          <button class="adtb on" onclick="swTab('n',this)">📋 공지사항</button>
+          <button class="adtb" onclick="swTab('e',this)">🎉 이벤트</button>
+        </div>
+        <div id="tabNot">
+          <div class="fmgp"><label>제목</label><input type="text" id="notiTi" placeholder="공지 제목"></div>
+          <div class="fmgp"><label>내용</label><textarea id="notiCo" placeholder="공지 내용" style="min-height:80px"></textarea></div>
+          <div class="fmgp" style="display:flex;align-items:center;gap:.5rem">
+            <input type="checkbox" id="notiIm" style="width:auto">
+            <label for="notiIm" style="margin:0;font-size:.82rem;color:var(--nv)">중요 공지</label>
+          </div>
+          <button class="fmsb" onclick="addNoti()">공지 등록</button>
+        </div>
+        <div id="tabEvt" style="display:none">
+          <div class="fmgp"><label>제목</label><input type="text" id="evtiTi" placeholder="이벤트 제목"></div>
+          <div class="fmrw">
+            <div class="fmgp"><label>시작일</label><input type="date" id="evtiSt"></div>
+            <div class="fmgp"><label>종료일</label><input type="date" id="evtiEd"></div>
+          </div>
+          <div class="fmrw">
+            <div class="fmgp"><label>상태</label><select id="evtiSs"><option>진행중</option><option>예정</option><option>종료</option></select></div>
+            <div class="fmgp"><label>색상</label><select id="evtiTh"><option value="blue">블루</option><option value="green">그린</option><option value="orange">오렌지</option><option value="purple">퍼플</option></select></div>
+          </div>
+          <div class="fmgp"><label>이모지</label><input type="text" id="evtiIc" placeholder="🎉" style="max-width:80px"></div>
+          <div class="fmgp">
+            <label>이미지 URL <small style="color:var(--gy);font-weight:400">(Google Drive 공유링크)</small></label>
+            <input type="text" id="evtiIm" placeholder="https://drive.google.com/...">
+          </div>
+          <button class="fmsb" onclick="addEvti()">이벤트 등록</button>
+        </div>
+      </div>
+    </div>
+    <button class="mdcl" onclick="closeOvly('admOvly')">닫기</button>
+  </div>
+</div>
+
+<div class="tost" id="tost"></div>
+
 <script>
-var G='https://script.google.com/macros/s/AKfycbwMxhZtTROsmmd-b_0QZEaGzegYqIcB7QVePDYR4zS_-z6fbwcMby9CcEfeyGtTVA1a/exec';
-var AP='https://student378.github.io/yuhan-wellness-apply/';
-var TK=null;
-document.getElementById('mImg').onerror=function(){this.style.display='none';document.getElementById('mFb').style.display='flex';};
-function gA(){window.open(AP,'_blank');}
-function jp(p,ok,err){
-  var cb='cb_'+Date.now()+'_'+Math.floor(Math.random()*9999);
-  var qs=Object.keys(p).map(function(k){return k+'='+encodeURIComponent(p[k]);}).join('&');
-  window[cb]=function(d){delete window[cb];var s=document.getElementById('s'+cb);if(s)s.remove();if(d.status==='ok'){if(ok)ok(d);}else{if(err)err(d.message||'오류');else ts(d.message||'오류','er');}};
-  var s=document.createElement('script');s.id='s'+cb;s.src=G+'?'+qs+'&callback='+cb;
-  s.onerror=function(){delete window[cb];s.remove();if(err)err('네트워크 오류');else ts('네트워크 오류','er');};
-  document.head.appendChild(s);
-}
-function lE(){
-  jp({action:'getEvents'},function(d){
-    var b=document.getElementById('evBox');
-    if(!d.data||!d.data.length){b.innerHTML='<div class="eem">📭 등록된 이벤트가 없습니다.</div>';return;}
-    var sm={'진행중':'son','예정':'sup','종료':'sen'};
-    b.innerHTML='<div class="eg">'+d.data.map(function(v){
-      var th=v.theme||'blue';
-      var im=v.imageUrl?'<img class="et" src="'+v.imageUrl+'" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;etf '+th+'&quot;>'+(v.icon||'🎉')+'</div>\'">'
-        :'<div class="etf '+th+'">'+(v.icon||'🎉')+'</div>';
-      return '<div class="ec">'+im+'<div class="eb"><span class="es '+(sm[v.status]||'sen')+'">'+v.status+'</span><div class="em">'+v.title+'</div><div class="ep">'+((v.dateStart&&v.dateEnd)?v.dateStart+' — '+v.dateEnd:'')+'</div></div></div>';
-    }).join('')+'</div>';
-  },function(){document.getElementById('evBox').innerHTML='<div class="eem">⚠️ 이벤트를 불러오지 못했습니다.</div>';});
-}
-function lN(){
-  jp({action:'getNotices'},function(d){
-    var b=document.getElementById('notBox');
-    if(!d.data||!d.data.length){b.innerHTML='<tr><td colspan="3" class="nem">📭 공지사항이 없습니다.</td></tr>';return;}
-    b.innerHTML=d.data.map(function(n,i){
-      return '<tr><td>'+(d.data.length-i)+'</td><td><button class="nb4" onclick=\'sN('+JSON.stringify(n)+')\'>'+(n.important?'<span class="bim">중요</span>':'')+n.title+'</button></td><td>'+n.date+'</td></tr>';
-    }).join('');
-  },function(){document.getElementById('notBox').innerHTML='<tr><td colspan="3" class="nem">⚠️ 불러오지 못했습니다.</td></tr>';});
-}
-var FD={
-  p:{ic:'📸',tl:'인생네컷 이용 안내',ds:'QR 체크인 또는 이용 신청으로 입장하세요.',ls:[['위치','학생회관 4층'],['이용시간','~ 17:40까지'],['요금','무료']]},
-  k:{ic:'🎤',tl:'노래방 이용 안내',ds:'1회 최대 30분. 17:40까지 퇴실.',ls:[['위치','학생회관 4층'],['최대이용','30분'],['요금','무료']]},
-  t:{ic:'🏓',tl:'탁구장 이용 안내',ds:'신발 제한 없음. 라켓 지급 후 반납.',ls:[['위치','학생회관 4층'],['이용시간','최대 1시간'],['요금','무료']]},
-  g:{ic:'💪',tl:'헬스장 이용 안내',ds:'전용 운동화 필수. 탈의실 사물함 이용 가능.',ls:[['위치','학생회관 4층'],['신발','전용 운동화 필수'],['요금','무료']]},
+var GURL = 'https://script.google.com/macros/s/AKfycbwMxhZtTROsmmd-b_0QZEaGzegYqIcB7QVePDYR4zS_-z6fbwcMby9CcEfeyGtTVA1a/exec';
+var AURL = 'https://student378.github.io/yuhan-wellness-apply/';
+var ATOK = null;
+
+document.getElementById('mapImg').onerror = function() {
+  this.style.display = 'none';
+  document.getElementById('mapFb').style.display = 'flex';
 };
-function sF(k){var d=FD[k];document.getElementById('fIc').textContent=d.ic;document.getElementById('fTl').textContent=d.tl;document.getElementById('fDs').textContent=d.ds;document.getElementById('fLs').innerHTML=d.ls.map(function(r){return '<li><span class="mlk">'+r[0]+'</span><span class="mlv">'+r[1]+'</span></li>';}).join('');document.getElementById('fOv').classList.add('open');}
-function sN(n){document.getElementById('nTl').textContent=n.title;document.getElementById('nMt').textContent='작성일: '+n.date;document.getElementById('nCt').textContent=n.content;document.getElementById('nOv').classList.add('open');}
-function cO(id,e){if(!e||e.target===document.getElementById(id))document.getElementById(id).classList.remove('open');}
-function sbSg(){
-  var dp=document.getElementById('iDp').value.trim(),sd=document.getElementById('iSd').value.trim(),fc=document.getElementById('iFc').value,sj=document.getElementById('iSj').value.trim(),ct=document.getElementById('iCt').value.trim();
-  if(!sj||!ct){ts('제목과 내용을 입력해주세요.','er');return;}
-  var btn=document.getElementById('sgBtn');btn.disabled=true;btn.textContent='⏳ 접수 중...';
-  jp({action:'submitSuggestion',department:dp,studentId:sd,facility:fc,subject:sj,content:ct},
-    function(){ts('✅ 건의사항이 접수되었습니다!','ok');['iDp','iSd','iSj','iCt'].forEach(function(id){document.getElementById(id).value='';});document.getElementById('iFc').value='';btn.disabled=false;btn.textContent='✉️ 건의 제출하기';},
-    function(m){ts('❌ '+m,'er');btn.disabled=false;btn.textContent='✉️ 건의 제출하기';}
+
+function doApply() { window.open(AURL, '_blank'); }
+
+function callGAS(params, onOk, onErr) {
+  var cbName = 'gcb_' + Date.now() + '_' + Math.floor(Math.random() * 9999);
+  var qs = Object.keys(params).map(function(k) {
+    return encodeURIComponent(k) + '=' + encodeURIComponent(params[k]);
+  }).join('&');
+  window[cbName] = function(data) {
+    delete window[cbName];
+    var sc = document.getElementById('sc_' + cbName);
+    if (sc) sc.parentNode.removeChild(sc);
+    if (data.status === 'ok') { if (onOk) onOk(data); }
+    else { var msg = data.message || '오류가 발생했습니다.'; if (onErr) onErr(msg); else showToast(msg, 'er'); }
+  };
+  var sc = document.createElement('script');
+  sc.id = 'sc_' + cbName;
+  sc.src = GURL + '?' + qs + '&callback=' + cbName;
+  sc.onerror = function() {
+    delete window[cbName];
+    if (sc.parentNode) sc.parentNode.removeChild(sc);
+    var msg = '네트워크 오류가 발생했습니다.';
+    if (onErr) onErr(msg); else showToast(msg, 'er');
+  };
+  document.head.appendChild(sc);
+}
+
+function loadEvents() {
+  callGAS({ action: 'getEvents' }, function(data) {
+    var box = document.getElementById('evBox');
+    if (!data.data || data.data.length === 0) {
+      box.innerHTML = '<div class="evem">📭 현재 등록된 이벤트가 없습니다.</div>';
+      return;
+    }
+    var stMap = { '진행중': 'ston', '예정': 'stup', '종료': 'sted' };
+    var html = '<div class="evgrd">';
+    data.data.forEach(function(ev) {
+      var th = ev.theme || 'blue';
+      var img = ev.imageUrl
+        ? '<img class="evth" src="' + ev.imageUrl + '" loading="lazy" onerror="this.outerHTML=\'<div class=&quot;evfb ' + th + '&quot;>' + (ev.icon || '🎉') + '</div>\'">'
+        : '<div class="evfb ' + th + '">' + (ev.icon || '🎉') + '</div>';
+      var period = (ev.dateStart && ev.dateEnd) ? ev.dateStart + ' — ' + ev.dateEnd : (ev.dateStart || '');
+      html += '<div class="evcd">' + img + '<div class="evbd"><span class="evst ' + (stMap[ev.status] || 'sted') + '">' + (ev.status || '') + '</span><div class="evtl">' + ev.title + '</div><div class="evpr">' + period + '</div></div></div>';
+    });
+    html += '</div>';
+    box.innerHTML = html;
+  }, function() {
+    document.getElementById('evBox').innerHTML = '<div class="evem">⚠️ 이벤트를 불러오지 못했습니다.</div>';
+  });
+}
+
+function loadNotices() {
+  callGAS({ action: 'getNotices' }, function(data) {
+    var box = document.getElementById('notBox');
+    if (!data.data || data.data.length === 0) {
+      box.innerHTML = '<tr><td colspan="3" class="ntem">📭 등록된 공지사항이 없습니다.</td></tr>';
+      return;
+    }
+    var html = '';
+    data.data.forEach(function(n, i) {
+      var imp = n.important ? '<span class="bimp">중요</span>' : '';
+      html += '<tr><td>' + (data.data.length - i) + '</td><td><button class="ntbtn" onclick=\'showNotice(' + JSON.stringify(n) + ')\'>' + imp + n.title + '</button></td><td>' + n.date + '</td></tr>';
+    });
+    box.innerHTML = html;
+  }, function() {
+    document.getElementById('notBox').innerHTML = '<tr><td colspan="3" class="ntem">⚠️ 공지사항을 불러오지 못했습니다.</td></tr>';
+  });
+}
+
+var FAC_DATA = {
+  pb: { icon: '📸', title: '인생네컷 이용 안내', desc: 'QR 체크인 또는 이용 신청으로 입장하세요.', list: [['위치','학생회관 4층'],['이용시간','~ 17:40까지'],['입장','QR 체크인 또는 신청'],['요금','무료']] },
+  kr: { icon: '🎤', title: '노래방 이용 안내', desc: '1회 최대 30분 이용. 17:40까지 퇴실.', list: [['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['최대이용','30분 초과 불가'],['요금','무료']] },
+  pp: { icon: '🏓', title: '탁구장 이용 안내', desc: '신발 제한 없음. 라켓 셋트 지급 후 반납.', list: [['위치','학생회관 4층'],['이용시간','최대 1시간 · ~ 17:40'],['신발','제한 없음'],['라켓','지급 후 반납'],['요금','무료']] },
+  gm: { icon: '💪', title: '헬스장 이용 안내', desc: '전용 운동화 필수. 탈의실 사물함 이용 가능.', list: [['위치','학생회관 4층'],['이용시간','~ 17:40 퇴실'],['신발','전용 운동화 필수'],['사물함','탈의실 내'],['요금','무료']] }
+};
+
+function showFac(key) {
+  var d = FAC_DATA[key];
+  document.getElementById('facIcon').textContent = d.icon;
+  document.getElementById('facTitle').textContent = d.title;
+  document.getElementById('facDesc').textContent = d.desc;
+  var li = d.list.map(function(r) { return '<li><span class="mdlk">' + r[0] + '</span><span class="mdlv">' + r[1] + '</span></li>'; }).join('');
+  document.getElementById('facList').innerHTML = li;
+  document.getElementById('facOvly').classList.add('open');
+}
+
+function showNotice(n) {
+  document.getElementById('notTitle').textContent = n.title;
+  document.getElementById('notMeta').textContent = '작성일: ' + n.date;
+  document.getElementById('notCont').textContent = n.content;
+  document.getElementById('notOvly').classList.add('open');
+}
+
+function closeOvly(id, e) {
+  if (!e || e.target === document.getElementById(id))
+    document.getElementById(id).classList.remove('open');
+}
+
+function submitSug() {
+  var dpt = document.getElementById('inDpt').value.trim();
+  var sid = document.getElementById('inSid').value.trim();
+  var fac = document.getElementById('inFac').value;
+  var sbj = document.getElementById('inSbj').value.trim();
+  var cnt = document.getElementById('inCnt').value.trim();
+  if (!sbj || !cnt) { showToast('제목과 내용을 입력해주세요.', 'er'); return; }
+  var btn = document.getElementById('sugBtn');
+  btn.disabled = true; btn.textContent = '⏳ 접수 중...';
+  callGAS({ action: 'submitSuggestion', department: dpt, studentId: sid, facility: fac, subject: sbj, content: cnt },
+    function() {
+      showToast('✅ 건의사항이 접수되었습니다!', 'ok');
+      ['inDpt','inSid','inSbj','inCnt'].forEach(function(id) { document.getElementById(id).value = ''; });
+      document.getElementById('inFac').value = '';
+      btn.disabled = false; btn.textContent = '✉️ 건의 제출하기';
+    },
+    function(msg) { showToast('❌ ' + msg, 'er'); btn.disabled = false; btn.textContent = '✉️ 건의 제출하기'; }
   );
 }
-function oA(){document.getElementById('aOv').classList.add('open');}
-function dLg(){
-  var pw=document.getElementById('aPw').value;
-  if(!pw){ts('비밀번호를 입력해주세요.','er');return;}
-  jp({action:'adminLogin',password:pw},
-    function(d){TK=d.token;document.getElementById('aLg').style.display='none';document.getElementById('aPn').style.display='block';document.getElementById('aTl').textContent='관리자 패널';ts('✅ 로그인 성공','ok');},
-    function(m){ts('❌ '+m,'er');}
+
+function openAdmin() { document.getElementById('admOvly').classList.add('open'); }
+
+function doLogin() {
+  var pw = document.getElementById('admPw').value;
+  if (!pw) { showToast('비밀번호를 입력해주세요.', 'er'); return; }
+  callGAS({ action: 'adminLogin', password: pw },
+    function(data) {
+      ATOK = data.token;
+      document.getElementById('admLogin').style.display = 'none';
+      document.getElementById('admPanel').style.display = 'block';
+      document.getElementById('admTitle').textContent = '관리자 패널';
+      showToast('✅ 로그인 성공', 'ok');
+    },
+    function(msg) { showToast('❌ ' + msg, 'er'); }
   );
 }
-function swT(t,b){document.querySelectorAll('.at').forEach(function(x){x.classList.remove('on');});b.classList.add('on');document.getElementById('tpN').style.display=t==='n'?'block':'none';document.getElementById('tpE').style.display=t==='e'?'block':'none';}
-function aN(){
-  var ti=document.getElementById('nTi').value.trim(),co=document.getElementById('nCo').value.trim(),im=document.getElementById('nIm').checked;
-  if(!ti||!co){ts('제목과 내용을 입력해주세요.','er');return;}
-  jp({action:'addNotice',token:TK,title:ti,content:co,important:String(im)},
-    function(){ts('✅ 공지사항이 등록되었습니다.','ok');document.getElementById('nTi').value='';document.getElementById('nCo').value='';lN();},
-    function(m){ts('❌ '+m,'er');}
+
+function swTab(t, btn) {
+  document.querySelectorAll('.adtb').forEach(function(b) { b.classList.remove('on'); });
+  btn.classList.add('on');
+  document.getElementById('tabNot').style.display = t === 'n' ? 'block' : 'none';
+  document.getElementById('tabEvt').style.display = t === 'e' ? 'block' : 'none';
+}
+
+function addNoti() {
+  var ti = document.getElementById('notiTi').value.trim();
+  var co = document.getElementById('notiCo').value.trim();
+  var im = document.getElementById('notiIm').checked;
+  if (!ti || !co) { showToast('제목과 내용을 입력해주세요.', 'er'); return; }
+  callGAS({ action: 'addNotice', token: ATOK, title: ti, content: co, important: String(im) },
+    function() {
+      showToast('✅ 공지사항이 등록되었습니다.', 'ok');
+      document.getElementById('notiTi').value = '';
+      document.getElementById('notiCo').value = '';
+      loadNotices();
+    },
+    function(msg) { showToast('❌ ' + msg, 'er'); }
   );
 }
-function aE(){
-  var ti=document.getElementById('eTi').value.trim();
-  if(!ti){ts('이벤트 제목을 입력해주세요.','er');return;}
-  jp({action:'addEvent',token:TK,title:ti,dateStart:document.getElementById('eSt').value,dateEnd:document.getElementById('eEd').value,status:document.getElementById('eSs').value,theme:document.getElementById('eTh').value,icon:document.getElementById('eIc').value||'🎉',imageUrl:document.getElementById('eIm').value.trim()},
-    function(){ts('✅ 이벤트가 등록되었습니다.','ok');document.getElementById('eTi').value='';lE();},
-    function(m){ts('❌ '+m,'er');}
+
+function addEvti() {
+  var ti = document.getElementById('evtiTi').value.trim();
+  if (!ti) { showToast('이벤트 제목을 입력해주세요.', 'er'); return; }
+  callGAS({
+    action: 'addEvent', token: ATOK, title: ti,
+    dateStart: document.getElementById('evtiSt').value,
+    dateEnd: document.getElementById('evtiEd').value,
+    status: document.getElementById('evtiSs').value,
+    theme: document.getElementById('evtiTh').value,
+    icon: document.getElementById('evtiIc').value || '🎉',
+    imageUrl: document.getElementById('evtiIm').value.trim()
+  },
+    function() {
+      showToast('✅ 이벤트가 등록되었습니다.', 'ok');
+      document.getElementById('evtiTi').value = '';
+      loadEvents();
+    },
+    function(msg) { showToast('❌ ' + msg, 'er'); }
   );
 }
-function ts(m,t){var x=document.getElementById('tst');x.textContent=m;x.className='tst '+t+' show';setTimeout(function(){x.className='tst '+t;},3200);}
-var ob=new IntersectionObserver(function(en){en.forEach(function(e,i){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('on');},i*65);ob.unobserve(e.target);}});},{threshold:.07});
-document.querySelectorAll('.rv').forEach(function(el){ob.observe(el);});
-lE();lN();
+
+function showToast(msg, type) {
+  var t = document.getElementById('tost');
+  t.textContent = msg;
+  t.className = 'tost ' + type + ' show';
+  setTimeout(function() { t.className = 'tost ' + type; }, 3200);
+}
+
+var rvObs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry, i) {
+    if (entry.isIntersecting) {
+      setTimeout(function() { entry.target.classList.add('on'); }, i * 65);
+      rvObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.rv').forEach(function(el) { rvObs.observe(el); });
+
+loadEvents();
+loadNotices();
 </script>
+
 </body>
 </html>
